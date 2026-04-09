@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L1 แผนที่ที่ 'ซ่อน' ลำดับชั้น — 互動學習</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    line-height: 1.8;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15,15,26,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2a2a4a;
+    padding: 0 20px;
+    display: flex; align-items: center; gap: 8px;
+    height: 52px;
+    overflow-x: auto;
+  }
+  nav button {
+    background: none; border: 1px solid #3a3a5a; color: #aaa;
+    padding: 6px 14px; border-radius: 20px; cursor: pointer;
+    font-size: 13px; white-space: nowrap; transition: all 0.2s;
+  }
+  nav button:hover { border-color: #7c6ff7; color: #fff; }
+  nav button.active { background: #7c6ff7; border-color: #7c6ff7; color: #fff; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 72px 20px 40px; }
+
+  /* TABS */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* === 逐句翻譯 === */
+  .section-title {
+    font-size: 22px; font-weight: 700; margin: 32px 0 16px;
+    color: #7c6ff7;
+    border-left: 4px solid #7c6ff7; padding-left: 12px;
+  }
+
+  .sentence-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .sentence-card:hover { border-color: #7c6ff7; }
+
+  .thai-sentence {
+    font-size: 20px;
+    line-height: 2.2;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .thai-sentence .word {
+    display: inline;
+    padding: 2px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .thai-sentence .word:hover {
+    background: rgba(124,111,247,0.2);
+  }
+  .thai-sentence .word.highlighted {
+    background: rgba(124,111,247,0.35);
+    color: #fff;
+  }
+  .thai-sentence .word.word-review {
+    color: #e8c547;
+    border-bottom: 1px dotted #e8c547;
+  }
+  .thai-sentence .word.word-review:hover {
+    background: rgba(232,197,71,0.15);
+  }
+  .thai-sentence .word.word-review.highlighted {
+    background: rgba(232,197,71,0.3);
+    color: #e8c547;
+  }
+
+  .zh-translation {
+    color: #8a8aaa;
+    font-size: 15px;
+    padding: 8px 0;
+    border-top: 1px dashed #2a2a4a;
+    cursor: pointer;
+    user-select: none;
+  }
+  .zh-translation.hidden span { filter: blur(6px); }
+  .zh-translation .hint { font-size: 12px; color: #555; margin-left: 8px; }
+
+  /* VOCAB */
+  .vocab-list { margin-top: 12px; }
+  .vocab-item {
+    display: grid;
+    grid-template-columns: 32px 120px 140px 1fr;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+    align-items: center;
+  }
+  .vocab-item:hover { background: rgba(124,111,247,0.1); }
+  .vocab-item .v-thai { font-size: 16px; font-weight: 600; color: #e8c547; }
+  .vocab-item .v-roman { color: #7c9ff7; font-size: 13px; }
+  .vocab-item .v-meaning { color: #ccc; }
+  .vocab-item .v-english { color: #888; font-size: 13px; }
+  .vocab-item .v-struct { color: #666; font-size: 12px; margin-top: 2px; }
+
+  .vocab-toggle {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #7c6ff7;
+    cursor: pointer;
+    user-select: none;
+  }
+  .vocab-toggle:hover { text-decoration: underline; }
+
+  .vocab-list.collapsed { display: none; }
+
+  /* === 例句 TAB === */
+  .example-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .example-card:hover { border-color: #e8c547; }
+  .example-card .ex-word { font-size: 20px; color: #e8c547; font-weight: 600; }
+  .example-card .ex-zh { font-size: 14px; color: #aaa; margin-left: 12px; }
+  .example-card .ex-sentences {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #2a2a4a;
+    display: none;
+  }
+  .example-card.open .ex-sentences { display: block; }
+  .example-card .ex-thai { font-size: 17px; line-height: 2; margin-bottom: 4px; }
+  .example-card .ex-cn { color: #8a8aaa; font-size: 14px; }
+
+  /* === 近似字 TAB === */
+  .similar-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  .similar-card .sim-word { text-align: center; }
+  .similar-card .sim-thai { font-size: 24px; color: #e8c547; font-weight: 600; }
+  .similar-card .sim-roman { font-size: 13px; color: #7c9ff7; }
+  .similar-card .sim-mean { font-size: 14px; color: #ccc; margin-top: 4px; }
+  .similar-card .sim-vs { font-size: 18px; color: #7c6ff7; font-weight: 700; }
+  .similar-card .sim-note {
+    grid-column: 1 / -1;
+    font-size: 13px; color: #888;
+    background: rgba(124,111,247,0.08);
+    padding: 8px 12px; border-radius: 6px;
+    margin-top: 4px;
+  }
+
+  /* === 單字卡 TAB === */
+  .flashcard-area {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 40px 0;
+  }
+  .flashcard {
+    width: 100%; max-width: 480px;
+    min-height: 300px;
+    background: linear-gradient(145deg, #1e1e36, #1a1a2e);
+    border: 2px solid #2a2a4a;
+    border-radius: 20px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+    user-select: none;
+    perspective: 1000px;
+  }
+  .flashcard:hover { border-color: #7c6ff7; transform: translateY(-2px); }
+  .flashcard .fc-thai { font-size: 36px; color: #e8c547; font-weight: 700; }
+  .flashcard .fc-roman { font-size: 16px; color: #7c9ff7; margin-top: 8px; }
+  .flashcard .fc-answer {
+    margin-top: 20px; text-align: center;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .flashcard.revealed .fc-answer { opacity: 1; }
+  .flashcard .fc-zh { font-size: 24px; color: #fff; }
+  .flashcard .fc-en { font-size: 14px; color: #888; margin-top: 4px; }
+  .flashcard .fc-struct { font-size: 13px; color: #666; margin-top: 8px; }
+  .flashcard .fc-hint { font-size: 13px; color: #555; margin-top: 20px; }
+  .flashcard.revealed .fc-hint { display: none; }
+
+  .fc-controls {
+    display: flex; gap: 12px; margin-top: 24px; align-items: center;
+  }
+  .fc-controls button {
+    padding: 10px 28px; border-radius: 24px; border: none;
+    font-size: 15px; cursor: pointer; transition: all 0.2s;
+  }
+  .fc-btn-prev, .fc-btn-next {
+    background: #2a2a4a; color: #ccc;
+  }
+  .fc-btn-prev:hover, .fc-btn-next:hover { background: #7c6ff7; color: #fff; }
+  .fc-btn-shuffle { background: none; border: 1px solid #3a3a5a !important; color: #888; font-size: 13px; padding: 8px 16px; }
+  .fc-btn-shuffle:hover { border-color: #7c6ff7 !important; color: #fff; }
+  .fc-progress { font-size: 14px; color: #555; }
+
+  /* === 測驗 TAB === */
+  .quiz-area { max-width: 600px; margin: 0 auto; padding: 20px 0; }
+  .quiz-question {
+    font-size: 32px; text-align: center;
+    color: #e8c547; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .quiz-roman { text-align: center; color: #7c9ff7; font-size: 15px; margin-bottom: 24px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option {
+    padding: 14px 20px;
+    background: #1a1a2e;
+    border: 2px solid #2a2a4a;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+    color: #ccc;
+  }
+  .quiz-option:hover { border-color: #7c6ff7; color: #fff; }
+  .quiz-option.correct { border-color: #4caf50; background: rgba(76,175,80,0.15); color: #4caf50; }
+  .quiz-option.wrong { border-color: #f44336; background: rgba(244,67,54,0.15); color: #f44336; }
+  .quiz-score {
+    text-align: center; margin-top: 24px;
+    font-size: 15px; color: #888;
+  }
+  .quiz-next {
+    display: block; margin: 20px auto;
+    padding: 10px 32px; border-radius: 24px; border: none;
+    background: #7c6ff7; color: #fff; font-size: 15px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .quiz-next:hover { background: #6a5ce0; }
+
+  /* Tooltip */
+  .word-tooltip {
+    position: fixed;
+    background: #252545;
+    border: 1px solid #7c6ff7;
+    border-radius: 10px;
+    padding: 12px 16px;
+    z-index: 200;
+    min-width: 220px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    display: none;
+    font-size: 14px;
+  }
+  .word-tooltip .tt-thai { font-size: 18px; color: #e8c547; font-weight: 600; }
+  .word-tooltip .tt-roman { color: #7c9ff7; font-size: 13px; }
+  .word-tooltip .tt-zh { margin-top: 4px; color: #fff; }
+  .word-tooltip .tt-en { color: #888; font-size: 13px; }
+  .word-tooltip .tt-struct { color: #666; font-size: 12px; margin-top: 4px; }
+  .btn-speak {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    background: rgba(124,111,247,0.15); border: 1px solid #7c6ff7;
+    border-radius: 50%; cursor: pointer; font-size: 14px;
+    transition: all 0.2s; color: #7c6ff7; flex-shrink: 0;
+    vertical-align: middle; margin-left: 6px; padding: 0;
+  }
+  .btn-speak:hover { background: #7c6ff7; color: #fff; }
+  .btn-speak.speaking { background: #7c6ff7; color: #fff; animation: pulse 0.8s infinite; }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+  .btn-speak-lg {
+    width: 40px; height: 40px; font-size: 18px;
+    background: rgba(124,111,247,0.15); border: 1px solid #7c6ff7;
+    border-radius: 50%; cursor: pointer;
+    transition: all 0.2s; color: #7c6ff7;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-top: 8px;
+  }
+  .btn-speak-lg:hover { background: #7c6ff7; color: #fff; }
+  .btn-speak-lg.speaking { background: #7c6ff7; color: #fff; animation: pulse 0.8s infinite; }
+  .sentence-speak {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    background: rgba(232,197,71,0.1); border: 1px solid rgba(232,197,71,0.4);
+    border-radius: 50%; cursor: pointer; font-size: 13px;
+    transition: all 0.2s; color: #e8c547; margin-right: 8px;
+    vertical-align: middle; flex-shrink: 0; padding: 0;
+  }
+  .sentence-speak:hover { background: rgba(232,197,71,0.3); }
+  .sentence-speak.speaking { animation: pulse 0.8s infinite; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .vocab-item { grid-template-columns: 32px 1fr; }
+    .similar-card { grid-template-columns: 1fr; text-align: center; }
+    .similar-card .sim-vs { font-size: 14px; }
+    .flashcard { padding: 24px; min-height: 240px; }
+    .flashcard .fc-thai { font-size: 28px; }
+    .thai-sentence { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="active" onclick="switchTab('reading')">逐句閱讀</button>
+  <button onclick="switchTab('examples')">常用例句</button>
+  <button onclick="switchTab('similar')">近似字</button>
+  <button onclick="switchTab('flashcard')">單字卡</button>
+  <button onclick="switchTab('quiz')">測驗</button>
+</nav>
+
+<div class="container">
+
+<!-- ===== TAB: 逐句閱讀 ===== -->
+<div id="tab-reading" class="tab-content active"></div>
+
+<!-- ===== TAB: 常用例句 ===== -->
+<div id="tab-examples" class="tab-content"></div>
+
+<!-- ===== TAB: 近似字 ===== -->
+<div id="tab-similar" class="tab-content"></div>
+
+<!-- ===== TAB: 單字卡 ===== -->
+<div id="tab-flashcard" class="tab-content">
+  <div class="flashcard-area">
+    <div class="flashcard" id="flashcard" onclick="revealCard()">
+      <div class="fc-thai"></div>
+      <button class="btn-speak-lg" id="fc-speak" onclick="event.stopPropagation();speak(fcList[fcIndex].thai, this)" title="播放發音">&#9835;</button>
+      <div class="fc-roman"></div>
+      <div class="fc-answer">
+        <div class="fc-zh"></div>
+        <div class="fc-en"></div>
+        <div class="fc-struct"></div>
+      </div>
+      <div class="fc-hint">點擊翻牌</div>
+    </div>
+    <div class="fc-controls">
+      <button class="fc-btn-prev" onclick="prevCard()">← 上一個</button>
+      <span class="fc-progress" id="fc-progress"></span>
+      <button class="fc-btn-next" onclick="nextCard()">下一個 →</button>
+      <button class="fc-btn-shuffle" onclick="shuffleCards()">🔀 隨機</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TAB: 測驗 ===== -->
+<div id="tab-quiz" class="tab-content">
+  <div class="quiz-area" id="quiz-area"></div>
+</div>
+
+</div>
+
+<!-- Tooltip -->
+<div class="word-tooltip" id="tooltip"></div>
+
+<script>
+// ===== DATA =====
+const sections = [
+  { title: "段落一：導言", sentences: [
+    {
+      thai: "แผนที่  ที่  'ซ่อน'  ลำดับชั้น",
+      zh: "隱藏階層的地圖",
+      vocab: [
+        { thai: "แผนที่", roman: "phǎen thîi", zh: "地圖", en: "map", struct: "แผน (計畫) + ที่ (地方)" },
+        { thai: "ซ่อน", roman: "sôn", zh: "隱藏", en: "hide", struct: "單純詞" },
+        { thai: "ลำดับชั้น", roman: "lam dàp chán", zh: "階層", en: "hierarchy", struct: "ลำดับ (順序) + ชั้น (層)" },
+      ]
+    },
+    {
+      thai: "อ่านโลก  ผ่าน  Wallerstein — เมื่อ  ปัญหา  ไม่ใช่  ประเทศ  แต่  คือ  ระบบ  ที่  ประเทศ  อาศัยอยู่",
+      zh: "透過 Wallerstein 讀懂世界——當問題不在於國家，而在於國家所處的系統。",
+      vocab: [
+        { thai: "ปัญหา", roman: "pan hǎa", zh: "問題", en: "problem", struct: "來自巴利語 pañhā" },
+        { thai: "อาศัยอยู่", roman: "aa sǎi yùu", zh: "居住、依存", en: "reside in", struct: "อาศัย (依靠) + อยู่ (在)" },
+      ]
+    },
+    {
+      thai: "ลอง  นึกภาพ  โลก  ไม่ใช่  ใน  ฐานะ  ประเทศ  หลาย  ร้อย  ประเทศ  ที่  แข่งขัน  กัน  อย่าง  เท่าเทียม  แต่  เป็น  ระบบ  เดียว  ที่  มี  ลำดับชั้น  ซ่อน  อยู่  ภายใน",
+      zh: "試著想像這個世界，不是數百個國家在平等地競爭，而是一個內部隱藏著階層的單一系統。",
+      vocab: [
+        { thai: "นึกภาพ", roman: "núek phâap", zh: "想像", en: "imagine", struct: "นึก (想) + ภาพ (畫面)" },
+        { thai: "โลก", roman: "lôok", zh: "世界", en: "world", struct: "來自巴利語 loka" },
+        { thai: "ฐานะ", roman: "thǎa ná", zh: "地位、身份", en: "status", struct: "來自巴利語" },
+        { thai: "ประเทศ", roman: "prà thêet", zh: "國家", en: "country", struct: "ประ + เทศ (梵語 deśa)" },
+        { thai: "แข่งขัน", roman: "khàeng khǎn", zh: "競爭", en: "compete", struct: "แข่ง (賽) + ขัน (競)" },
+        { thai: "เท่าเทียม", roman: "thâo thiam", zh: "平等", en: "equal", struct: "เท่า (相等) + เทียม (並列)" },
+        { thai: "ระบบ", roman: "rá bòp", zh: "系統", en: "system", struct: "來自巴利語" },
+        { thai: "ภายใน", roman: "phaai nai", zh: "內部", en: "inside", struct: "ภาย (方面) + ใน (裡)" },
+      ]
+    },
+    {
+      thai: "บาง  ประเทศ  อยู่  บนสุด  บาง  ประเทศ  อยู่  ตรงกลาง  และ  บาง  ประเทศ  อยู่  ล่างสุด",
+      zh: "有些國家在最頂端，有些國家在中間，有些國家在最底層。",
+      vocab: [
+        { thai: "บาง", roman: "baang", zh: "某些", en: "some", struct: "單純詞" },
+        { thai: "บนสุด", roman: "bon sùt", zh: "最上面", en: "topmost", struct: "บน (上) + สุด (最)" },
+        { thai: "ตรงกลาง", roman: "trong klaang", zh: "中間", en: "in the middle", struct: "ตรง (正) + กลาง (中)" },
+        { thai: "ล่างสุด", roman: "lâang sùt", zh: "最下面", en: "bottommost", struct: "ล่าง (下) + สุด (最)" },
+      ]
+    },
+    {
+      thai: "ลำดับชั้น  นั้น  ไม่  ได้  เกิด  จาก  ความขยัน  หรือ  ความฉลาด  ของ  ประชาชน  ใน  แต่ละ  ประเทศ  แต่  เกิด  จาก  โครงสร้าง  ของ  ระบบ  ที่  กำหนด  ว่า  ใคร  ได้  ประโยชน์  จาก  การค้า  โลก  และ  ใคร  เสียเปรียบ",
+      zh: "這個階層不是由各國人民的勤勞或聰明所造成的，而是由決定誰從全球貿易中獲益、誰處於劣勢的系統結構所造成的。",
+      vocab: [
+        { thai: "เกิดจาก", roman: "kòet jàak", zh: "源自", en: "arise from", struct: "เกิด (產生) + จาก (從)" },
+        { thai: "ความขยัน", roman: "khwaam khà yǎn", zh: "勤勞", en: "diligence", struct: "ความ (名詞化) + ขยัน" },
+        { thai: "ความฉลาด", roman: "khwaam chà làat", zh: "聰明", en: "intelligence", struct: "ความ + ฉลาด" },
+        { thai: "ประชาชน", roman: "prà chaa chon", zh: "人民", en: "people", struct: "ประชา (民眾) + ชน (人)" },
+        { thai: "โครงสร้าง", roman: "khroong sâang", zh: "結構", en: "structure", struct: "โครง (框架) + สร้าง (建造)" },
+        { thai: "กำหนด", roman: "kam nòt", zh: "決定、規定", en: "determine", struct: "來自高棉語" },
+        { thai: "ประโยชน์", roman: "prà yòot", zh: "利益", en: "benefit", struct: "來自巴利語" },
+        { thai: "การค้า", roman: "kaan kháa", zh: "貿易", en: "trade", struct: "การ + ค้า (做生意)" },
+        { thai: "เสียเปรียบ", roman: "sǐa prìap", zh: "處於劣勢", en: "disadvantage", struct: "เสีย (失去) + เปรียบ (比較)" },
+      ]
+    },
+  ]},
+  { title: "段落二：Core, Periphery 與 Semiperiphery", sentences: [
+    {
+      thai: "นี่  คือ  จุดเริ่มต้น  ของ  Immanuel Wallerstein  ใน  The Modern World-System  ที่  ตีพิมพ์  ใน  ปี  2517  และ  ยังคง  เป็น  หนึ่ง  ใน  งาน  ที่  อ่าน  โลก  ได้  คม  ที่สุด  เท่าที่  เคย  มี  มา",
+      zh: "這就是 Wallerstein 在 1974 年出版的《現代世界體系》的起點，至今仍是解讀世界最深刻的著作之一。",
+      vocab: [
+        { thai: "จุดเริ่มต้น", roman: "jùt rôem tôn", zh: "起點", en: "starting point", struct: "จุด (點) + เริ่มต้น (開始)" },
+        { thai: "ตีพิมพ์", roman: "tii phim", zh: "出版", en: "publish", struct: "ตี (打) + พิมพ์ (印刷)" },
+        { thai: "คม", roman: "khom", zh: "銳利、深刻", en: "sharp", struct: "單純詞" },
+      ]
+    },
+    {
+      thai: "วอลเลอร์สไตน์  แบ่ง  ประเทศ  ใน  โลก  ออก  เป็น  สาม  กลุ่ม  ไม่ใช่  ตาม  ระดับ  การพัฒนา  แต่  ตาม  หน้าที่  ใน  ระบบ  โลก",
+      zh: "Wallerstein 將世界上的國家分為三組——不是按發展程度，而是按在世界體系中的功能。",
+      vocab: [
+        { thai: "แบ่ง", roman: "bàeng", zh: "分開", en: "divide", struct: "單純詞" },
+        { thai: "กลุ่ม", roman: "klùm", zh: "組、群", en: "group", struct: "單純詞" },
+        { thai: "ระดับ", roman: "rá dàp", zh: "程度", en: "level", struct: "單純詞" },
+        { thai: "การพัฒนา", roman: "kaan phát thá naa", zh: "發展", en: "development", struct: "การ + พัฒนา (巴利語)" },
+        { thai: "หน้าที่", roman: "nâa thîi", zh: "職責、功能", en: "duty, function", struct: "หน้า (面) + ที่ (的)" },
+      ]
+    },
+    {
+      thai: "กลุ่ม  แรก  คือ  Core  หรือ  ศูนย์กลาง  ซึ่ง  ไม่  ได้  หมายความ  แค่  ว่า  รวย  กว่า  แต่  หมายความ  ว่า  เป็น  ผู้  กำหนด  กฎเกณฑ์  ของ  ระบบ  ครอง  เทคโนโลยี  การผลิต  ขั้นสูง  ควบคุม  ระบบ  การเงิน  และ  ผลิต  สินค้า  ที่  มี  มูลค่าเพิ่ม  สูง",
+      zh: "第一組是 Core（核心），不僅意味更富有，而是制定規則的人、掌控高端生產技術、控制金融體系，並生產高附加值商品。",
+      vocab: [
+        { thai: "ศูนย์กลาง", roman: "sǔun klaang", zh: "中心", en: "center", struct: "ศูนย์ (梵語) + กลาง (中間)" },
+        { thai: "หมายความ", roman: "mǎai khwaam", zh: "意味著", en: "mean", struct: "หมาย (指) + ความ (意義)" },
+        { thai: "กฎเกณฑ์", roman: "kòt keen", zh: "規則", en: "rules", struct: "กฎ (規則) + เกณฑ์ (標準)" },
+        { thai: "ครอง", roman: "khraawng", zh: "掌控", en: "dominate", struct: "單純詞" },
+        { thai: "การผลิต", roman: "kaan phà lìt", zh: "生產", en: "production", struct: "การ + ผลิต" },
+        { thai: "ขั้นสูง", roman: "khân sǔung", zh: "高級的", en: "advanced", struct: "ขั้น (階段) + สูง (高)" },
+        { thai: "ควบคุม", roman: "khûap khum", zh: "控制", en: "control", struct: "ควบ (合) + คุม (管)" },
+        { thai: "การเงิน", roman: "kaan ngoen", zh: "金融", en: "finance", struct: "การ + เงิน (錢)" },
+        { thai: "มูลค่าเพิ่ม", roman: "muun khâa phôem", zh: "附加值", en: "added value", struct: "มูลค่า + เพิ่ม (增加)" },
+      ]
+    },
+    {
+      thai: "ประเทศ  กลุ่ม  นี้  ดึง  มูลค่า  ออก  จาก  ส่วน  อื่น  ของ  ระบบ  เข้ามา  หา  ตัวเอง  อย่าง  สม่ำเสมอ",
+      zh: "這類國家持續從系統的其他部分汲取價值，源源不斷地流向自身。",
+      vocab: [
+        { thai: "ดึง", roman: "dueng", zh: "抽取、吸引", en: "extract, pull", struct: "單純詞" },
+        { thai: "ส่วน", roman: "sùan", zh: "部分", en: "part", struct: "單純詞" },
+        { thai: "เข้ามา", roman: "khâo maa", zh: "進入、流向", en: "come in", struct: "เข้า (進) + มา (來)" },
+        { thai: "สม่ำเสมอ", roman: "sà mâm sà mǒe", zh: "持續、一致", en: "consistently", struct: "單純詞" },
+      ]
+    },
+    {
+      thai: "กลุ่ม  ที่สอง  คือ  Periphery  หรือ  รอบนอก  ซึ่ง  ทำ  หน้าที่  ส่งออก  วัตถุดิบ  แรงงาน  ราคาถูก  และ  สินค้า  ที่  มี  มูลค่าเพิ่ม  ต่ำ",
+      zh: "第二組是 Periphery（邊陲），負責出口原材料、廉價勞動力和低附加值商品。",
+      vocab: [
+        { thai: "รอบนอก", roman: "rôop nôok", zh: "外圍", en: "periphery", struct: "รอบ (周圍) + นอก (外)" },
+        { thai: "ส่งออก", roman: "sòng òok", zh: "出口", en: "export", struct: "ส่ง (送) + ออก (出)" },
+        { thai: "วัตถุดิบ", roman: "wát thù dìp", zh: "原材料", en: "raw material", struct: "วัตถุ (巴利語) + ดิบ (生)" },
+        { thai: "แรงงาน", roman: "raeng ngaan", zh: "勞動力", en: "labor", struct: "แรง (力) + งาน (工作)" },
+        { thai: "ราคาถูก", roman: "raa khaa thùuk", zh: "便宜的", en: "cheap", struct: "ราคา (價格) + ถูก (便宜)" },
+        { thai: "สินค้า", roman: "sǐn kháa", zh: "商品", en: "goods", struct: "สิน (財) + ค้า (貿易)" },
+      ]
+    },
+    {
+      thai: "ประเทศ  กลุ่ม  นี้  ไม่  ยากจน  เพราะ  ขาด  ทรัพยากร  หรือ  ขาด  ความขยัน  แต่  ยากจน  เพราะ  โครงสร้าง  ของ  การแลกเปลี่ยน  ใน  ระบบ  โลก  ทำให้  มูลค่า  ที่  พวกเขา  สร้าง  ไหล  ออก  ไป  สู่  Core  ตลอดเวลา",
+      zh: "這些國家不是因缺乏資源或勤勞而貧窮，而是因為交換結構使他們創造的價值持續流向核心。",
+      vocab: [
+        { thai: "ยากจน", roman: "yâak jon", zh: "貧窮", en: "poor", struct: "ยาก (困難) + จน (窮)" },
+        { thai: "ขาด", roman: "khàat", zh: "缺乏", en: "lack", struct: "單純詞" },
+        { thai: "ทรัพยากร", roman: "sáp phá yaa kawn", zh: "資源", en: "resource", struct: "來自巴利語/梵語" },
+        { thai: "แลกเปลี่ยน", roman: "lâek plìan", zh: "交換", en: "exchange", struct: "แลก (換) + เปลี่ยน (變)" },
+        { thai: "มูลค่า", roman: "muun khâa", zh: "價值", en: "value", struct: "มูล (巴利語) + ค่า (值)" },
+        { thai: "ไหล", roman: "lǎi", zh: "流動", en: "flow", struct: "單純詞" },
+        { thai: "ตลอดเวลา", roman: "tà lòot wee laa", zh: "一直", en: "all the time", struct: "ตลอด (貫穿) + เวลา (時間)" },
+      ]
+    },
+    {
+      thai: "กลุ่ม  ที่สาม  คือ  Semiperiphery  หรือ  กึ่ง  รอบนอก  และ  นี่  คือ  ตำแหน่ง  ที่  น่าสนใจ  ที่สุด  ใน  ระบบ",
+      zh: "第三組是 Semiperiphery（半邊陲），這是系統中最有趣的位置。",
+      vocab: [
+        { thai: "กึ่ง", roman: "kùeng", zh: "半", en: "semi-", struct: "單純詞" },
+        { thai: "ตำแหน่ง", roman: "tam nàeng", zh: "位置", en: "position", struct: "來自高棉語" },
+        { thai: "น่าสนใจ", roman: "nâa sǒn jai", zh: "有趣的", en: "interesting", struct: "น่า (值得) + สนใจ (感興趣)" },
+      ]
+    },
+    {
+      thai: "ประเทศ  กลุ่ม  นี้  อยู่  ตรงกลาง  พวกเขา  มี  อุตสาหกรรม  มี  ชนชั้นกลาง  มี  รัฐ  ที่  เข้มแข็ง  พอควร  แต่  ยัง  ไม่  ถึง  ระดับ  ที่  จะ  กำหนด  กฎเกณฑ์  ของ  ระบบ  ได้",
+      zh: "這些國家處於中間位置，他們有工業、有中產階級、有相當強大的國家機器，但還不到能制定系統規則的程度。",
+      vocab: [
+        { thai: "อุตสาหกรรม", roman: "ùt sǎa hà kam", zh: "工業", en: "industry", struct: "來自巴利語 utsāhakamma" },
+        { thai: "ชนชั้นกลาง", roman: "chon chán klaang", zh: "中產階級", en: "middle class", struct: "ชน + ชั้น + กลาง" },
+        { thai: "รัฐ", roman: "rát", zh: "國家、政府", en: "state", struct: "來自巴利語 raṭṭha" },
+        { thai: "เข้มแข็ง", roman: "khêm khǎeng", zh: "強大", en: "strong", struct: "เข้ม (濃) + แข็ง (硬)" },
+        { thai: "พอควร", roman: "phaw khuan", zh: "相當地", en: "moderately", struct: "พอ (夠) + ควร (應該)" },
+      ]
+    },
+    {
+      thai: "หน้าที่  สำคัญ  ของ  Semiperiphery  ใน  ระบบ  คือ  การ  ทำ  หน้าที่  เป็น  \"ตัวกลาง\"  ดูดซับ  แรงกดดัน  ทาง  การเมือง  จาก  Periphery  ไม่  ให้  มัน  พุ่ง  ตรง  ไป  ยัง  Core  โดยตรง",
+      zh: "Semiperiphery 的重要功能是充當「中間人」，吸收來自邊陲的政治壓力，使其不直接衝向核心。",
+      vocab: [
+        { thai: "สำคัญ", roman: "sǎm khan", zh: "重要", en: "important", struct: "來自高棉語" },
+        { thai: "ตัวกลาง", roman: "tua klaang", zh: "中間人", en: "intermediary", struct: "ตัว (個體) + กลาง (中)" },
+        { thai: "ดูดซับ", roman: "dùut sáp", zh: "吸收", en: "absorb", struct: "ดูด (吸) + ซับ (吸附)" },
+        { thai: "แรงกดดัน", roman: "raeng kòt dan", zh: "壓力", en: "pressure", struct: "แรง (力) + กดดัน (施壓)" },
+        { thai: "การเมือง", roman: "kaan mueang", zh: "政治", en: "politics", struct: "การ + เมือง (城市/國)" },
+        { thai: "พุ่ง", roman: "phûng", zh: "衝", en: "rush", struct: "單純詞" },
+      ]
+    },
+  ]},
+  { title: "段落三：系統位置 vs 政府政策", sentences: [
+    {
+      thai: "สิ่ง  ที่  ทำให้  วอลเลอร์สไตน์  แตกต่าง  จาก  นักวิเคราะห์  นโยบาย  ทั่วไป  คือ  เขา  เชื่อ  ว่า  ตำแหน่ง  ของ  ประเทศ  ใน  ระบบ  โลก  มี  ผล  ต่อ  ชะตากรรม  ของ  ประเทศ  นั้น  มากกว่า  นโยบาย  ภายใน  เสีย  อีก",
+      zh: "Wallerstein 與一般政策分析師不同在於，他認為國家在世界體系中的位置對命運的影響超過國內政策。",
+      vocab: [
+        { thai: "แตกต่าง", roman: "tàek tàang", zh: "不同", en: "different", struct: "แตก (破) + ต่าง (異)" },
+        { thai: "นักวิเคราะห์", roman: "nák wí khráw", zh: "分析師", en: "analyst", struct: "นัก (…家) + วิเคราะห์ (分析)" },
+        { thai: "นโยบาย", roman: "ná yoo baai", zh: "政策", en: "policy", struct: "來自巴利語" },
+        { thai: "เชื่อ", roman: "chûea", zh: "相信", en: "believe", struct: "單純詞" },
+        { thai: "ชะตากรรม", roman: "chà taa kam", zh: "命運", en: "fate", struct: "ชะตา (命運) + กรรม (業)" },
+        { thai: "ผล", roman: "phǒn", zh: "影響", en: "effect", struct: "來自巴利語 phala" },
+      ]
+    },
+    {
+      thai: "ลอง  คิดดู  ง่าย ๆ  ว่า  ทำไม  ประเทศ  ที่  ส่งออก  วัตถุดิบ  ถึง  ยัง  จน  อยู่  แม้  จะ  มี  ทรัพยากร  มหาศาล",
+      zh: "簡單想想看，為什麼出口原材料的國家依然貧窮，即使擁有龐大的資源？",
+      vocab: [
+        { thai: "มหาศาล", roman: "má hǎa sǎan", zh: "龐大的", en: "enormous", struct: "มหา (大，梵語) + ศาล (量度)" },
+        { thai: "แม้", roman: "máe", zh: "即使", en: "even though", struct: "單純詞" },
+      ]
+    },
+    {
+      thai: "คำตอบ  ของ  วอลเลอร์สไตน์  ไม่ใช่  เพราะ  พวกเขา  บริหาร  ไม่ดี  หรือ  ทุจริต  แต่  เพราะ  โครงสร้าง  ของ  การแลกเปลี่ยน  ใน  ระบบ  โลก  ถูก  ออกแบบ  มา  ให้  มูลค่า  ไหล  จาก  รอบนอก  เข้า  สู่  ศูนย์กลาง  ไม่ว่า  รัฐบาล  จะ  ดี  หรือ  แย่  แค่ไหน  ก็ตาม",
+      zh: "Wallerstein 的答案不是因為他們治理不善或貪腐，而是因為世界體系的交換結構被設計成讓價值從邊陲流向核心——無論政府好壞如何。",
+      vocab: [
+        { thai: "คำตอบ", roman: "kham tòop", zh: "答案", en: "answer", struct: "คำ (話) + ตอบ (回答)" },
+        { thai: "บริหาร", roman: "baw rí hǎan", zh: "治理、管理", en: "manage", struct: "來自巴利語" },
+        { thai: "ทุจริต", roman: "thút jà rìt", zh: "貪腐", en: "corrupt", struct: "來自巴利語 duccarita" },
+        { thai: "ออกแบบ", roman: "àwk bàep", zh: "設計", en: "design", struct: "ออก (出) + แบบ (樣式)" },
+        { thai: "รัฐบาล", roman: "rát thà baan", zh: "政府", en: "government", struct: "รัฐ (國) + บาล (巴利語)" },
+      ]
+    },
+    {
+      thai: "สิ่งนี้  สำคัญ  มาก  ใน  การ  อ่าน  ความขัดแย้ง  ระหว่าง  ประเทศ  เพราะ  มัน  บอก  เรา  ว่า  ปัญหา  ของ  ประเทศ  จำนวน  มาก  ใน  โลก  ไม่  ได้  อยู่  ที่  พวกเขา  ขาด  ผู้นำ  ที่  ดี  หรือ  ขาด  นโยบาย  ที่  ถูกต้อง  แต่  อยู่  ที่  ตำแหน่ง  ของ  พวกเขา  ใน  ระบบ  ที่  สร้าง  เงื่อนไข  ที่  ไม่เท่าเทียม  ตั้งแต่แรก",
+      zh: "這對解讀國際衝突非常重要，因為它告訴我們：世界上許多國家的問題不在於缺乏好的領導人或正確的政策，而在於他們在系統中的位置，從一開始就創造了不平等的條件。",
+      vocab: [
+        { thai: "ความขัดแย้ง", roman: "khwaam khàt yáeng", zh: "衝突", en: "conflict", struct: "ความ + ขัดแย้ง (矛盾)" },
+        { thai: "ผู้นำ", roman: "phûu nam", zh: "領導人", en: "leader", struct: "ผู้ (人) + นำ (領導)" },
+        { thai: "ถูกต้อง", roman: "thùuk tông", zh: "正確的", en: "correct", struct: "ถูก (對) + ต้อง (符合)" },
+        { thai: "เงื่อนไข", roman: "ngûean khǎi", zh: "條件", en: "condition", struct: "เงื่อน (結) + ไข (解)" },
+        { thai: "ไม่เท่าเทียม", roman: "mâi thâo thiam", zh: "不平等", en: "unequal", struct: "ไม่ + เท่าเทียม" },
+        { thai: "ตั้งแต่แรก", roman: "tâng tàe râek", zh: "從一開始", en: "from the start", struct: "ตั้งแต่ (從…起) + แรก (最初)" },
+      ]
+    },
+  ]},
+  { title: "段落四：霸權循環", sentences: [
+    {
+      thai: "วอลเลอร์สไตน์  ยัง  เสนอ  แนวคิด  ที่  เรียก  ว่า  Hegemonic Cycle  หรือ  วัฏจักร  ของ  อำนาจ  นำ  ซึ่ง  บอก  ว่า  ใน  ระบบ  โลก  จะ  มี  ประเทศ  ที่  ครอง  ความเป็นเจ้า  อยู่  ใน  ช่วงเวลา  หนึ่ง ๆ  เสมอ  แต่  ความเป็นเจ้า  นั้น  ไม่  ถาวร",
+      zh: "Wallerstein 提出「霸權循環」概念——世界體系中總有一個國家佔據霸權，但霸權不是永久的。",
+      vocab: [
+        { thai: "เสนอ", roman: "sà nǒe", zh: "提出", en: "propose", struct: "單純詞" },
+        { thai: "แนวคิด", roman: "naew khít", zh: "概念", en: "concept", struct: "แนว (方向) + คิด (想)" },
+        { thai: "วัฏจักร", roman: "wát tà jàk", zh: "循環", en: "cycle", struct: "來自巴利語 vaṭṭacakka" },
+        { thai: "อำนาจ", roman: "am nâat", zh: "權力", en: "power", struct: "來自高棉語/巴利語" },
+        { thai: "ความเป็นเจ้า", roman: "khwaam pen jâo", zh: "霸權", en: "hegemony", struct: "ความเป็น (…性) + เจ้า (主人)" },
+        { thai: "ถาวร", roman: "thǎa wawn", zh: "永久", en: "permanent", struct: "來自巴利語 thāvara" },
+      ]
+    },
+    {
+      thai: "มัน  ขึ้น  และ  ลง  ตาม  วัฏจักร  ที่  ยาวนาน  หลาย  ทศวรรษ",
+      zh: "它隨著長達數十年的循環而起伏。",
+      vocab: [
+        { thai: "ทศวรรษ", roman: "thót sà wát", zh: "十年", en: "decade", struct: "來自巴利語/梵語 daśavarṣa" },
+        { thai: "ยาวนาน", roman: "yaao naan", zh: "漫長", en: "long-lasting", struct: "ยาว (長) + นาน (久)" },
+      ]
+    },
+    {
+      thai: "ช่วง  ที่  น่ากลัว  ที่สุด  ใน  วัฏจักร  นี้  ไม่ใช่  ช่วง  ที่  มหาอำนาจ  หนึ่ง  ครอง  โลก  อย่าง  ชัดเจน  แต่  คือ  ช่วง  เปลี่ยนผ่าน  เมื่อ  อำนาจ  นำ  เดิม  กำลัง  เสื่อมถอย  และ  อำนาจ  นำ  ใหม่  ยัง  ขึ้น  มา  ไม่  สุด",
+      zh: "在這個循環中最可怕的不是一個大國明確統治世界的時候，而是過渡期——舊霸權衰落，新霸權尚未完全崛起。",
+      vocab: [
+        { thai: "น่ากลัว", roman: "nâa klua", zh: "可怕的", en: "scary", struct: "น่า (值得) + กลัว (怕)" },
+        { thai: "มหาอำนาจ", roman: "má hǎa am nâat", zh: "大國", en: "superpower", struct: "มหา (大) + อำนาจ (權力)" },
+        { thai: "ชัดเจน", roman: "chát jeen", zh: "明確", en: "clear", struct: "ชัด (清) + เจน (明)" },
+        { thai: "เปลี่ยนผ่าน", roman: "plìan phàan", zh: "過渡", en: "transition", struct: "เปลี่ยน (改變) + ผ่าน (經過)" },
+        { thai: "เสื่อมถอย", roman: "sùeam thǎwy", zh: "衰落", en: "decline", struct: "เสื่อม (退化) + ถอย (退)" },
+      ]
+    },
+    {
+      thai: "ระบบ  ไม่มี  ศูนย์กลาง  ที่  ชัดเจน  กฎเกณฑ์  เดิม  ไม่  ได้  รับ  การยอมรับ  จาก  ทุก  ฝ่าย  และ  ประเทศ  ต่าง ๆ  แย่งชิง  ตำแหน่ง  กัน  ด้วย  ความก้าวร้าว  มากขึ้น",
+      zh: "系統沒有清晰的中心，舊規則不再被各方接受，各國以越來越強硬的姿態爭奪位置。",
+      vocab: [
+        { thai: "การยอมรับ", roman: "kaan yaawm ráp", zh: "接受", en: "acceptance", struct: "การ + ยอมรับ (接受)" },
+        { thai: "ฝ่าย", roman: "fàai", zh: "方、陣營", en: "side, party", struct: "單純詞" },
+        { thai: "แย่งชิง", roman: "yâeng ching", zh: "爭奪", en: "compete for, seize", struct: "แย่ง (搶) + ชิง (奪)" },
+        { thai: "ความก้าวร้าว", roman: "khwaam kâao ráao", zh: "攻擊性", en: "aggressiveness", struct: "ความ + ก้าวร้าว (侵略性)" },
+      ]
+    },
+    {
+      thai: "เรา  อยู่  ใน  ช่วง  ดังกล่าว  พอดี  สหรัฐ  ยังคง  เป็น  มหาอำนาจ  ทาง  ทหาร  และ  การเงิน  ที่  ยิ่งใหญ่  ที่สุด  แต่  ความสามารถ  ใน  การ  กำหนด  กฎเกณฑ์  ของ  ระบบ  โลก  ลด  ลง  อย่าง  ชัดเจน",
+      zh: "我們正好處於這樣的時期。美國仍是最強大的軍事和金融大國，但它制定世界體系規則的能力已明顯下降。",
+      vocab: [
+        { thai: "ดังกล่าว", roman: "dang klàao", zh: "如上所述的、該", en: "aforementioned", struct: "ดัง (如) + กล่าว (說)" },
+        { thai: "สหรัฐ", roman: "sà hà rát", zh: "美國", en: "USA", struct: "สห (聯合) + รัฐ (國)" },
+        { thai: "ทหาร", roman: "thá hǎan", zh: "軍事", en: "military", struct: "單純詞" },
+        { thai: "ยิ่งใหญ่", roman: "yîng yài", zh: "偉大的", en: "great", struct: "ยิ่ง (更) + ใหญ่ (大)" },
+        { thai: "ความสามารถ", roman: "khwaam sǎa mâat", zh: "能力", en: "ability", struct: "ความ + สามารถ" },
+      ]
+    },
+    {
+      thai: "ประเทศ  ต่าง ๆ  เริ่ม  ท้าทาย  ระเบียบ  ที่  สหรัฐ  สร้าง  ขึ้น  มากขึ้น  และ  ทางเลือก  ใหม่  ก็  เริ่ม  เปิด  ขึ้น  ทั้ง  ใน  แง่  สถาบัน  การเงิน  ระบบ  การค้า  และ  พันธมิตร  ทาง  การเมือง",
+      zh: "越來越多國家開始挑戰美國建立的秩序，新的選項也開始出現——無論是在金融機構、貿易體系，還是政治聯盟方面。",
+      vocab: [
+        { thai: "ท้าทาย", roman: "tháa taai", zh: "挑戰", en: "challenge", struct: "ท้า (挑) + ทาย (戰)" },
+        { thai: "ระเบียบ", roman: "rá bìap", zh: "秩序", en: "order", struct: "單純詞" },
+        { thai: "สถาบัน", roman: "sà thǎa ban", zh: "機構、制度", en: "institution", struct: "來自巴利語 sthāpana" },
+        { thai: "พันธมิตร", roman: "phan thá mít", zh: "同盟、夥伴", en: "ally", struct: "來自巴利語/梵語" },
+      ]
+    },
+    {
+      thai: "ใน  ช่วง  แบบ  นี้  ประเทศ  Semiperiphery  มี  พื้นที่  ใน  การ  ต่อรอง  มากขึ้น  เพราะ  Core  ไม่  ได้  รวมหัว  กัน  แน่น  เหมือนเดิม  แต่  ใน  ขณะเดียวกัน  ช่วง  แบบ  นี้  ก็  อันตราย  มาก  เพราะ  ทุก  ฝ่าย  พยายาม  ล็อก  ตำแหน่ง  ของ  ตัวเอง  ไว้  ก่อน  ที่  ระเบียบ  ใหม่  จะ  ถูก  กำหนด",
+      zh: "在這種時期，半邊陲國家有更多談判空間，因為核心國家不再像以前那樣緊密協調。但同時也非常危險，因為各方都在努力在新秩序確立之前鎖定自己的位置。",
+      vocab: [
+        { thai: "พื้นที่", roman: "phúen thîi", zh: "空間、餘地", en: "space, room", struct: "พื้น (地面) + ที่ (地方)" },
+        { thai: "ต่อรอง", roman: "tòr raawng", zh: "談判、議價", en: "negotiate", struct: "ต่อ (對) + รอง (讓)" },
+        { thai: "รวมหัว", roman: "ruam hǔa", zh: "結盟、協調", en: "collude", struct: "รวม (合) + หัว (頭)" },
+        { thai: "ล็อก", roman: "lók", zh: "鎖定", en: "lock", struct: "英語借詞" },
+        { thai: "ขณะเดียวกัน", roman: "khà nà diaw kan", zh: "同時", en: "at the same time", struct: "ขณะ (時刻) + เดียวกัน (同一)" },
+        { thai: "อันตราย", roman: "an tà raai", zh: "危險", en: "dangerous", struct: "來自巴利語" },
+      ]
+    },
+  ]},
+  { title: "段落五：不甘靜止的 Semiperiphery 與代價", sentences: [
+    {
+      thai: "ประเทศ  Semiperiphery  มี  สอง  ทางเลือก  ใน  ระบบ  โลก  ทาง  แรก  คือ  ยอมรับ  ตำแหน่ง  ของ  ตัวเอง  และ  ทำ  หน้าที่  ตัวกลาง  ให้  ระบบ",
+      zh: "半邊陲國家在世界體系中有兩個選擇：第一是接受自己的位置，扮演系統的中間人角色。",
+      vocab: [
+        { thai: "ยอมรับ", roman: "yaawm ráp", zh: "接受", en: "accept", struct: "ยอม (順從) + รับ (接)" },
+        { thai: "ทาง", roman: "thaang", zh: "道路、方式", en: "way, option", struct: "單純詞" },
+      ]
+    },
+    {
+      thai: "ทาง  ที่สอง  คือ  พยายาม  ดัน  ตัวเอง  ขึ้น  ไป  สู่  ระดับ  Core  ด้วย  การ  สร้าง  อุตสาหกรรม  พัฒนา  เทคโนโลยี  และ  สร้าง  อิทธิพล  ใน  ภูมิภาค",
+      zh: "第二是努力推動自身升至核心層級，透過建立工業、發展技術和在區域內建立影響力。",
+      vocab: [
+        { thai: "ดัน", roman: "dan", zh: "推動", en: "push", struct: "單純詞" },
+        { thai: "อิทธิพล", roman: "ìt thí phon", zh: "影響力", en: "influence", struct: "來自巴利語 iddhiphala" },
+        { thai: "ภูมิภาค", roman: "phuum mí phâak", zh: "區域", en: "region", struct: "來自巴利語/梵語" },
+      ]
+    },
+    {
+      thai: "ทาง  ที่สอง  นี้  มี  ความเสี่ยง  สูง  มาก  เพราะ  Core  มี  กลไก  ใน  การ  ป้องกัน  การ  ขึ้น  มา  ของ  คู่แข่ง  อยู่  เสมอ",
+      zh: "第二條路風險極高，因為核心國家始終擁有阻止競爭者崛起的機制。",
+      vocab: [
+        { thai: "ความเสี่ยง", roman: "khwaam sìang", zh: "風險", en: "risk", struct: "ความ + เสี่ยง (冒險)" },
+        { thai: "ป้องกัน", roman: "pôong kan", zh: "防止、保護", en: "prevent, protect", struct: "ป้อง (擋) + กัน (互)" },
+        { thai: "คู่แข่ง", roman: "khûu khàeng", zh: "競爭者", en: "competitor", struct: "คู่ (對) + แข่ง (競爭)" },
+      ]
+    },
+    {
+      thai: "กลไก  เหล่านั้น  ไม่  ได้  มี  แค่  รูปแบบ  ทาง  ทหาร  แต่  รวมถึง  การ  กำหนด  กฎเกณฑ์  การค้า  ที่  เอาเปรียบ  การ  ควบคุม  ระบบ  การเงิน  โลก  และ  การ  ใช้  สถาบัน  ระหว่าง  ประเทศ  เป็น  เครื่องมือ  กดดัน",
+      zh: "這些機制不只是軍事形式，還包括制定不公平的貿易規則、控制全球金融體系，以及將國際機構作為施壓工具。",
+      vocab: [
+        { thai: "รูปแบบ", roman: "rûup bàep", zh: "形式", en: "form, pattern", struct: "รูป (形狀) + แบบ (樣式)" },
+        { thai: "รวมถึง", roman: "ruam thùeng", zh: "包括", en: "including", struct: "รวม (合) + ถึง (到)" },
+        { thai: "เอาเปรียบ", roman: "ao prìap", zh: "佔便宜、不公平", en: "take advantage", struct: "เอา (取) + เปรียบ (比較)" },
+        { thai: "กดดัน", roman: "kòt dan", zh: "施壓", en: "pressure", struct: "กด (按壓) + ดัน (推)" },
+      ]
+    },
+    {
+      thai: "เมื่อ  ประเทศ  Semiperiphery  พยายาม  ควบคุม  ทรัพยากร  ของ  ตัวเอง  พัฒนา  อุตสาหกรรม  ที่  แข่งขัน  กับ  Core  หรือ  สร้าง  พันธมิตร  ที่  ท้าทาย  ระเบียบ  เดิม  การตอบสนอง  จาก  Core  มัก  จะ  สม่ำเสมอ  และ  รุนแรง  ไม่ว่า  เหตุผล  ที่  ประกาศ  ออกมา  จะ  เป็น  อะไร  ก็ตาม",
+      zh: "當半邊陲國家試圖控制自身資源、發展可與核心競爭的工業，或建立挑戰既有秩序的聯盟時，核心國家的回應往往一致且強烈——無論對外宣稱的理由是什麼。",
+      vocab: [
+        { thai: "การตอบสนอง", roman: "kaan tòop sà nǎwng", zh: "回應", en: "response", struct: "การ + ตอบสนอง" },
+        { thai: "รุนแรง", roman: "run raeng", zh: "強烈、猛烈", en: "intense, severe", struct: "รุน (衝) + แรง (強)" },
+        { thai: "เหตุผล", roman: "hèet phǒn", zh: "理由", en: "reason", struct: "เหตุ (原因，巴利語) + ผล (結果)" },
+        { thai: "ประกาศ", roman: "prà kàat", zh: "宣告", en: "announce", struct: "來自高棉語" },
+      ]
+    },
+    {
+      thai: "สิ่ง  ที่  น่าสังเกต  คือ  Core  ไม่  ได้  ลงโทษ  ทุก  ประเทศ  ที่  ละเมิด  บรรทัดฐาน  ระหว่าง  ประเทศ  มัน  ลงโทษ  เฉพาะ  ประเทศ  ที่  ท้าทาย  ลำดับชั้น  ของ  ระบบ",
+      zh: "值得注意的是，核心國家並不懲罰所有違反國際規範的國家，只懲罰那些挑戰系統階層的國家。",
+      vocab: [
+        { thai: "น่าสังเกต", roman: "nâa sǎng kèet", zh: "值得注意的", en: "noteworthy", struct: "น่า + สังเกต (觀察)" },
+        { thai: "ลงโทษ", roman: "long thôot", zh: "懲罰", en: "punish", struct: "ลง (施加) + โทษ (刑罰)" },
+        { thai: "บรรทัดฐาน", roman: "ban thàt thǎan", zh: "規範", en: "norm", struct: "來自巴利語/梵語" },
+        { thai: "เฉพาะ", roman: "chà phaw", zh: "僅、特定", en: "only, specific", struct: "單純詞" },
+      ]
+    },
+    {
+      thai: "ประเทศ  ที่  ทำ  สิ่ง  เดียวกัน  แต่  ยังคง  อยู่  ใน  ตำแหน่ง  ที่  ระบบ  กำหนด  ให้  มัก  จะ  ได้รับ  การยกเว้น  ความ  ไม่สม่ำเสมอ  นั้น  เอง  คือ  หลักฐาน  ที่  บอก  ว่า  เรา  กำลัง  เผชิญ  กับ  ตรรกะ  ของ  การ  รักษา  ระบบ  ไม่ใช่  ตรรกะ  ของ  หลักการ",
+      zh: "做同樣事情但仍留在系統指定位置的國家往往被豁免。這種不一致本身就是證據，說明我們面對的是維護系統的邏輯，而非原則的邏輯。",
+      vocab: [
+        { thai: "การยกเว้น", roman: "kaan yók wên", zh: "豁免", en: "exemption", struct: "การ + ยกเว้น (免除)" },
+        { thai: "ไม่สม่ำเสมอ", roman: "mâi sà mâm sà mǒe", zh: "不一致", en: "inconsistent", struct: "ไม่ + สม่ำเสมอ" },
+        { thai: "หลักฐาน", roman: "làk thǎan", zh: "證據", en: "evidence", struct: "หลัก (柱/基礎) + ฐาน (基礎)" },
+        { thai: "เผชิญ", roman: "phà choen", zh: "面對、面臨", en: "face, confront", struct: "來自高棉語" },
+        { thai: "ตรรกะ", roman: "tan rá ká", zh: "邏輯", en: "logic", struct: "來自梵語 tarka" },
+        { thai: "หลักการ", roman: "làk kaan", zh: "原則", en: "principle", struct: "หลัก (柱) + การ (事)" },
+      ]
+    },
+  ]},
+  { title: "段落六：制裁與階層維持", sentences: [
+    {
+      thai: "การคว่ำบาตร  ทาง  เศรษฐกิจ  มัก  ถูก  นำเสนอ  ว่า  เป็น  เครื่องมือ  ทาง  การทูต  ที่  ใช้  บังคับ  ให้  ประเทศ  ที่  ละเมิด  กฎหมาย  ระหว่าง  ประเทศ  ปรับ  พฤติกรรม",
+      zh: "經濟制裁通常被呈現為外交工具，用來迫使違反國際法的國家調整行為。",
+      vocab: [
+        { thai: "คว่ำบาตร", roman: "khwâm bàat", zh: "制裁", en: "sanction", struct: "คว่ำ (翻覆) + บาตร (缽)" },
+        { thai: "เศรษฐกิจ", roman: "sèet thà kìt", zh: "經濟", en: "economy", struct: "來自巴利語" },
+        { thai: "เครื่องมือ", roman: "khrûeang muue", zh: "工具", en: "tool", struct: "เครื่อง (器具) + มือ (手)" },
+        { thai: "การทูต", roman: "kaan thûut", zh: "外交", en: "diplomacy", struct: "การ + ทูต (使者)" },
+        { thai: "บังคับ", roman: "bang kháp", zh: "強制", en: "force", struct: "來自高棉語" },
+        { thai: "ละเมิด", roman: "lá mòet", zh: "違反", en: "violate", struct: "來自巴利語" },
+        { thai: "กฎหมาย", roman: "kòt mǎai", zh: "法律", en: "law", struct: "กฎ (規則) + หมาย (記號)" },
+        { thai: "พฤติกรรม", roman: "phrúe tì kam", zh: "行為", en: "behavior", struct: "來自巴利語" },
+      ]
+    },
+    {
+      thai: "คำอธิบาย  นี้  ฟัง  ดู  สมเหตุสมผล  และ  เป็นกลาง  แต่  เมื่อ  เรา  ดู  ว่า  ใคร  ถูก  คว่ำบาตร  และ  ใคร  ไม่  ถูก  คว่ำบาตร  รูปแบบ  ที่  ปรากฏ  ขึ้น  บอก  เรื่อง  ที่  ต่าง  ออก  ไป  โดยสิ้นเชิง",
+      zh: "這個解釋聽起來合理且中立，但當我們看看誰被制裁、誰沒被制裁，浮現的模式卻說著完全不同的故事。",
+      vocab: [
+        { thai: "คำอธิบาย", roman: "kham à thí baai", zh: "說明、解釋", en: "explanation", struct: "คำ (話) + อธิบาย (說明)" },
+        { thai: "สมเหตุสมผล", roman: "sǒm hèet sǒm phǒn", zh: "合理的", en: "reasonable", struct: "สม (符合) + เหตุ (原因) + ผล (結果)" },
+        { thai: "เป็นกลาง", roman: "pen klaang", zh: "中立的", en: "neutral", struct: "เป็น (是) + กลาง (中間)" },
+        { thai: "ปรากฏ", roman: "praa kòt", zh: "浮現、出現", en: "appear", struct: "來自巴利語" },
+        { thai: "โดยสิ้นเชิง", roman: "dooi sîn choeng", zh: "完全地", en: "entirely", struct: "โดย (由) + สิ้นเชิง (徹底)" },
+      ]
+    },
+    {
+      thai: "ประเทศ  ที่  ถูก  คว่ำบาตร  หนัก  ที่สุด  ใน  โลก  คือ  ประเทศ  ที่  พยายาม  สร้าง  ระบบ  เศรษฐกิจ  และ  การเมือง  ที่  เป็น  อิสระ  จาก  ระเบียบ  ที่  Core  กำหนด  ไม่ใช่  ประเทศ  ที่  ละเมิด  สิทธิมนุษยชน  มาก  ที่สุด  หรือ  พัฒนา  อาวุธ  อันตราย  ที่สุด",
+      zh: "世界上受制裁最嚴厲的國家，是那些試圖建立獨立於核心秩序之外的經濟和政治體系的國家——而不是那些違反人權最多或發展最危險武器的國家。",
+      vocab: [
+        { thai: "อิสระ", roman: "ìt sà rà", zh: "自由、獨立", en: "free, independent", struct: "來自梵語 īśvara" },
+        { thai: "สิทธิมนุษยชน", roman: "sìt thì má nút yá chon", zh: "人權", en: "human rights", struct: "สิทธิ (權利) + มนุษย (人類) + ชน (人)" },
+        { thai: "อาวุธ", roman: "aa wút", zh: "武器", en: "weapon", struct: "來自巴利語 āvudha" },
+      ]
+    },
+    {
+      thai: "ถ้า  หลักการ  เป็น  เรื่อง  สิทธิมนุษยชน  หรือ  อาวุธ  อย่าง  ที่  ประกาศ  เรา  จะ  ต้อง  อธิบาย  ได้  ว่า  ทำไม  พันธมิตร  ของ  Core  ที่  ทำ  สิ่ง  เดียวกัน  ถึง  ไม่  ถูก  ลงโทษ  ใน  ระดับ  เดียวกัน",
+      zh: "如果原則真的是關於人權或武器，我們就必須能解釋，為什麼做了同樣事情的核心盟友沒有受到同等的懲罰。",
+      vocab: [
+        { thai: "อธิบาย", roman: "à thí baai", zh: "解釋", en: "explain", struct: "來自巴利語" },
+        { thai: "พันธมิตร", roman: "phan thá mít", zh: "盟友", en: "ally", struct: "來自巴利語/梵語" },
+        { thai: "ระดับเดียวกัน", roman: "rá dàp diaw kan", zh: "同等程度", en: "same level", struct: "ระดับ + เดียวกัน (相同)" },
+      ]
+    },
+    {
+      thai: "วอลเลอร์สไตน์  ตอบ  ว่า  เพราะ  การคว่ำบาตร  ไม่ใช่  กลไก  ทาง  กฎหมาย  แต่  คือ  กลไก  ทาง  ระบบ  หน้าที่  ของ  มัน  คือ  ส่ง  สัญญาณ  ว่า  การ  ออก  นอก  ลำดับชั้น  ของ  ระบบ  มี  ราคา  และ  ราคา  นั้น  ถูก  ออกแบบ  ให้  สูง  พอ  ที่  จะ  ทำให้  ประเทศ  อื่น ๆ  ใน  Semiperiphery  คิดหนัก  ก่อน  จะ  ทำ  เช่นเดียวกัน",
+      zh: "Wallerstein 的回答是：制裁不是法律機制，而是系統機制。它的功能是發出信號：脫離系統階層是要付出代價的，而且代價被刻意設計得足夠高，讓其他半邊陲國家在採取同樣行動之前三思。",
+      vocab: [
+        { thai: "กลไก", roman: "konkai", zh: "機制", en: "mechanism", struct: "กล (機械) + ไก (齒輪)" },
+        { thai: "สัญญาณ", roman: "sǎn yaan", zh: "信號", en: "signal", struct: "來自巴利語" },
+        { thai: "ราคา", roman: "raa khaa", zh: "代價", en: "price", struct: "來自巴利語" },
+        { thai: "คิดหนัก", roman: "khít nàk", zh: "三思", en: "think hard", struct: "คิด (想) + หนัก (重)" },
+        { thai: "เช่นเดียวกัน", roman: "chên diaw kan", zh: "同樣地", en: "likewise", struct: "เช่น (如) + เดียวกัน (相同)" },
+      ]
+    },
+  ]},
+  { title: "段落七：過渡期與重新結盟", sentences: [
+    {
+      thai: "สิ่ง  ที่  น่าจับตา  ใน  ช่วง  เปลี่ยนผ่าน  อำนาจ  นำ  คือ  พฤติกรรม  ของ  ประเทศ  Semiperiphery  ใน  วัฏจักร  ของ  อำนาจ  นำ  ประเทศ  เหล่านี้  มัก  พยายาม  \"เดิมพัน\"  กับ  มหาอำนาจ  ที่  กำลัง  ขึ้น  มา",
+      zh: "在霸權過渡期值得關注的，是半邊陲國家的行為——它們通常試圖與正在崛起的大國「押注」。",
+      vocab: [
+        { thai: "น่าจับตา", roman: "nâa jàp taa", zh: "值得關注", en: "worth watching", struct: "น่า + จับตา (盯住看)" },
+        { thai: "เดิมพัน", roman: "doem phan", zh: "押注、賭注", en: "bet, wager", struct: "เดิม (原始) + พัน (綁)" },
+      ]
+    },
+    {
+      thai: "ขณะเดียวกัน  ก็  รักษา  ความสัมพันธ์  กับ  มหาอำนาจ  เดิม  เอา  ไว้  บ้าง  เพราะ  ความผิดพลาด  ใน  การ  เลือกข้าง  ใน  ช่วง  เปลี่ยนผ่าน  มี  ผล  ยาวนาน  หลาย  ทศวรรษ",
+      zh: "同時也保留一些與舊霸權的關係，因為在過渡期選邊站的錯誤，影響可能延續數十年。",
+      vocab: [
+        { thai: "ความสัมพันธ์", roman: "khwaam sǎm phan", zh: "關係", en: "relationship", struct: "ความ + สัมพันธ์ (來自巴利語)" },
+        { thai: "รักษา", roman: "rák sǎa", zh: "維護、保持", en: "maintain", struct: "來自巴利語 rakkhā" },
+        { thai: "ความผิดพลาด", roman: "khwaam phìt phlâat", zh: "錯誤", en: "mistake", struct: "ความ + ผิดพลาด" },
+        { thai: "เลือกข้าง", roman: "lûeak khâang", zh: "選邊站", en: "choose sides", struct: "เลือก (選) + ข้าง (邊)" },
+      ]
+    },
+    {
+      thai: "วอลเลอร์สไตน์  จะ  อ่าน  การ  ที่  ประเทศ  ใน  Global South  หลาย  ประเทศ  ปฏิเสธ  ที่  จะ  เข้าข้าง  สหรัฐ  ใน  ความขัดแย้ง  กับ  รัสเซีย  และ  จีน  ไม่ใช่  ว่า  เพราะ  พวกเขา  \"ไม่  มี  หลักการ\"  อย่าง  ที่  สื่อ  ตะวันตก  มัก  กล่าวหา",
+      zh: "Wallerstein 會這樣解讀：許多全球南方國家拒絕在美俄中衝突中選邊站，不是因為他們「沒有原則」——這是西方媒體常見的指責。",
+      vocab: [
+        { thai: "ปฏิเสธ", roman: "pà tì sèet", zh: "拒絕", en: "refuse", struct: "來自巴利語 paṭisedha" },
+        { thai: "เข้าข้าง", roman: "khâo khâang", zh: "選邊站", en: "take sides", struct: "เข้า (進入) + ข้าง (邊)" },
+        { thai: "สื่อ", roman: "sùue", zh: "媒體", en: "media", struct: "單純詞" },
+        { thai: "ตะวันตก", roman: "tà wan tòk", zh: "西方", en: "west", struct: "ตะวัน (太陽) + ตก (落)" },
+        { thai: "กล่าวหา", roman: "klàao hǎa", zh: "指責、指控", en: "accuse", struct: "กล่าว (說) + หา (找)" },
+      ]
+    },
+    {
+      thai: "แต่  เพราะ  พวกเขา  กำลัง  อ่าน  วัฏจักร  อำนาจ  นำ  และ  พยายาม  รักษา  ทางเลือก  เอา  ไว้  ให้  มาก  ที่สุด  ใน  ช่วง  ที่  ไม่มี  ใคร  รู้  ว่า  ระเบียบ  โลก  ใหม่  จะ  หน้าตา  เป็น  อย่างไร",
+      zh: "而是因為他們正在解讀霸權循環，並在沒有人知道新世界秩序將是什麼面貌的時候，盡可能保留自己的選擇空間。",
+      vocab: [
+        { thai: "ทางเลือก", roman: "thaang lûeak", zh: "選擇", en: "option", struct: "ทาง (路) + เลือก (選)" },
+        { thai: "หน้าตา", roman: "nâa taa", zh: "面貌、樣子", en: "appearance, face", struct: "หน้า (臉) + ตา (眼)" },
+        { thai: "พยายาม", roman: "phá yaa yaam", zh: "努力", en: "try", struct: "來自巴利語" },
+      ]
+    },
+    {
+      thai: "สิ่ง  ที่  วอลเลอร์สไตน์  ให้  เรา  และ  ไม่  อาจ  หา  จาก  ที่ไหน  ได้  คือ  แผนที่  แผนที่  ที่  บอก  ว่า  ประเทศ  ต่าง ๆ  ไม่  ได้  อยู่  ใน  โลก  แบนราบ  ที่  เท่าเทียม  กัน  แต่  อยู่  ใน  ระบบ  ที่  มี  ลำดับชั้น",
+      zh: "Wallerstein 給予我們的、無法從其他地方找到的，是一幅地圖——告訴我們各國並非處於平坦平等的世界，而是處於一個有階層的系統中。",
+      vocab: [
+        { thai: "แบนราบ", roman: "baen râap", zh: "平坦的", en: "flat", struct: "แบน (扁) + ราบ (平)" },
+      ]
+    },
+    {
+      thai: "และ  การ  เข้าใจ  ลำดับชั้น  นั้น  คือ  เงื่อนไข  เบื้องต้น  ใน  การ  เข้าใจ  ว่า  ความขัดแย้ง  ใด ๆ  กำลัง  เกิดขึ้น  เพื่อ  อะไร  และ  รับใช้  ใคร",
+      zh: "而理解那個階層，是理解任何衝突為何發生、為誰服務的基本前提。",
+      vocab: [
+        { thai: "เงื่อนไขเบื้องต้น", roman: "ngûean khǎi bûeang tôn", zh: "基本前提", en: "prerequisite", struct: "เงื่อนไข (條件) + เบื้องต้น (初步)" },
+        { thai: "รับใช้", roman: "ráp chái", zh: "服務、效勞", en: "serve", struct: "รับ (接受) + ใช้ (使用)" },
+      ]
+    },
+  ]},
+];
+
+const examples = [
+  { word: "ลำดับชั้น", zh: "階層", thai_ex: "สังคม  ไทย  มี  ลำดับชั้น  ที่  ชัดเจน", zh_ex: "泰國社會有明確的階層" },
+  { word: "ซ่อน", zh: "隱藏", thai_ex: "เขา  ซ่อน  ความรู้สึก  ไว้  ข้างใน", zh_ex: "他把感受隱藏在心裡" },
+  { word: "แข่งขัน", zh: "競爭", thai_ex: "บริษัท  ต่าง ๆ  แข่งขัน  กัน  เพื่อ  ลูกค้า", zh_ex: "各公司互相競爭客戶" },
+  { word: "เท่าเทียม", zh: "平等", thai_ex: "ทุกคน  ควร  ได้รับ  สิทธิ  อย่าง  เท่าเทียม", zh_ex: "每個人都應平等獲得權利" },
+  { word: "โครงสร้าง", zh: "結構", thai_ex: "โครงสร้าง  ของ  อาคาร  นี้  แข็งแรง  มาก", zh_ex: "這棟建築的結構非常堅固" },
+  { word: "ประโยชน์", zh: "利益", thai_ex: "การ  อ่าน  หนังสือ  มี  ประโยชน์  มาก", zh_ex: "讀書非常有益處" },
+  { word: "เสียเปรียบ", zh: "處於劣勢", thai_ex: "ทีม  เรา  เสียเปรียบ  เพราะ  มี  ผู้เล่น  น้อย  กว่า", zh_ex: "我們隊因球員較少而處於劣勢" },
+  { word: "ส่งออก", zh: "出口", thai_ex: "ไทย  ส่งออก  ข้าว  มาก  ที่สุด  ใน  โลก", zh_ex: "泰國是世界最大稻米出口國" },
+  { word: "ควบคุม", zh: "控制", thai_ex: "รัฐบาล  พยายาม  ควบคุม  ราคา  สินค้า", zh_ex: "政府嘗試控制商品價格" },
+  { word: "เปลี่ยนผ่าน", zh: "過渡", thai_ex: "ประเทศ  กำลัง  อยู่  ใน  ช่วง  เปลี่ยนผ่าน", zh_ex: "國家正處於過渡期" },
+  { word: "คว่ำบาตร", zh: "制裁", thai_ex: "สหประชาชาติ  คว่ำบาตร  ประเทศ  นั้น", zh_ex: "聯合國制裁了那個國家" },
+  { word: "ปฏิเสธ", zh: "拒絕", thai_ex: "เธอ  ปฏิเสธ  ข้อเสนอ  ของ  เขา", zh_ex: "她拒絕了他的提議" },
+  { word: "ทางเลือก", zh: "選擇", thai_ex: "เรา  มี  หลาย  ทางเลือก", zh_ex: "我們有很多選擇" },
+  { word: "อิสระ", zh: "自由", thai_ex: "ทุกคน  ต้องการ  อิสระ  ใน  ชีวิต", zh_ex: "每個人都想要生活中的自由" },
+  { word: "กำหนด", zh: "規定", thai_ex: "รัฐบาล  กำหนด  กฎ  ใหม่", zh_ex: "政府制定了新規則" },
+  { word: "มูลค่า", zh: "價值", thai_ex: "ที่ดิน  ตรง  นี้  มี  มูลค่า  สูง", zh_ex: "這塊土地價值很高" },
+  { word: "เสื่อมถอย", zh: "衰落", thai_ex: "อำนาจ  ของ  จักรวรรดิ  เสื่อมถอย  ลง", zh_ex: "帝國的權力衰落了" },
+  { word: "แนวคิด", zh: "概念", thai_ex: "นี่  คือ  แนวคิด  ใหม่  ที่  น่าสนใจ", zh_ex: "這是一個有趣的新概念" },
+  { word: "บังคับ", zh: "強制", thai_ex: "กฎหมาย  บังคับ  ให้  ทุกคน  เสีย  ภาษี", zh_ex: "法律強制每個人繳稅" },
+  { word: "พยายาม", zh: "努力", thai_ex: "เขา  พยายาม  เรียน  ภาษาไทย  ทุก  วัน", zh_ex: "他每天努力學泰語" },
+];
+
+const similarWords = [
+  { w1: "ซ่อน", r1: "sôn", m1: "隱藏", w2: "ซ้อน", r2: "són", m2: "重疊", note: "聲調不同：ซ่อน 低聲調=隱藏；ซ้อน 高聲調=重疊" },
+  { w1: "แบ่ง", r1: "bàeng", m1: "分開", w2: "แบน", r2: "baen", m2: "扁的", note: "尾音不同：-ง vs -น" },
+  { w1: "ครอง", r1: "khraawng", m1: "統治", w2: "คลอง", r2: "khlaawng", m2: "運河", note: "ร vs ล 的區別" },
+  { w1: "ผล", r1: "phǒn", m1: "結果", w2: "พล", r2: "phon", m2: "力量", note: "ผ vs พ：都是送氣音但書寫不同" },
+  { w1: "อำนาจ", r1: "am nâat", m1: "權力", w2: "อาณาจักร", r2: "aa naa jàk", m2: "王國", note: "同源：อำนาจ=抽象權力；อาณาจักร=統治領域" },
+  { w1: "กฎ", r1: "kòt", m1: "規則", w2: "กด", r2: "kòt", m2: "按、壓", note: "同音不同字：กฎ 有 ฎ；กด 有 ด" },
+  { w1: "ราคา", r1: "raa khaa", m1: "價格", w2: "รักษา", r2: "rák sǎa", m2: "治療", note: "前兩音節相似但意思完全不同" },
+  { w1: "เสีย", r1: "sǐa", m1: "失去/壞", w2: "เสี่ย", r2: "sìa", m2: "擲骰子", note: "聲調不同" },
+  { w1: "นำ", r1: "nam", m1: "領導", w2: "น้ำ", r2: "náam", m2: "水", note: "聲調+長短音不同：นำ 平聲短音；น้ำ 高聲調" },
+  { w1: "การค้า", r1: "kaan kháa", m1: "貿易", w2: "การก้า", r2: "kaan kâa", m2: "跨步", note: "聲調不同：ค้า=貿易；ก้า=跨步" },
+  { w1: "ส่ง", r1: "sòng", m1: "送", w2: "สร้าง", r2: "sâang", m2: "建造", note: "完全不同的詞，注意不要混淆拼寫" },
+];
+
+// Collect all vocab
+let allVocab = [];
+sections.forEach(s => s.sentences.forEach(sent => {
+  sent.vocab.forEach(v => {
+    if (!allVocab.find(x => x.thai === v.thai)) allVocab.push(v);
+  });
+}));
+
+// ===== SPEAK (TTS) =====
+let speakAudio = null;
+function speak(text, el) {
+  const clean = text.replace(/\s{2,}/g, ' ').replace(/["""']/g, '').trim();
+  if (!clean) return;
+
+  // Stop any currently playing audio
+  if (speakAudio) { speakAudio.pause(); speakAudio = null; }
+  document.querySelectorAll('.speaking').forEach(e => e.classList.remove('speaking'));
+
+  // Use Google Translate TTS
+  const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(clean)}&tl=th&client=tw-ob&ttsspeed=0.5`;
+  speakAudio = new Audio(url);
+  if (el) {
+    el.classList.add('speaking');
+    speakAudio.onended = () => { el.classList.remove('speaking'); speakAudio = null; };
+    speakAudio.onerror = () => {
+      el.classList.remove('speaking');
+      speakAudio = null;
+      // Fallback to Web Speech API
+      speakFallback(clean, el);
+    };
+  }
+  speakAudio.play().catch(() => {
+    // If Google TTS blocked, fallback
+    if (el) el.classList.remove('speaking');
+    speakFallback(clean, el);
+  });
+}
+
+function speakFallback(text, el) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'th-TH';
+  utter.rate = 0.8;
+  const voices = window.speechSynthesis.getVoices();
+  const thaiVoice = voices.find(v => v.lang.startsWith('th'));
+  if (thaiVoice) utter.voice = thaiVoice;
+  if (el) {
+    el.classList.add('speaking');
+    utter.onend = () => el.classList.remove('speaking');
+    utter.onerror = () => el.classList.remove('speaking');
+  }
+  window.speechSynthesis.speak(utter);
+}
+
+// ===== RENDER =====
+function renderReading() {
+  const el = document.getElementById('tab-reading');
+  let html = '<h1 style="font-size:26px;margin-bottom:8px;color:#fff;">แผนที่ที่ \'ซ่อน\' ลำดับชั้น</h1>';
+  html += '<p style="color:#888;margin-bottom:24px;">隱藏階層的地圖 — 點擊單字查看詳情，點擊中文翻譯切換顯示/隱藏</p>';
+
+  sections.forEach((sec, si) => {
+    html += `<div class="section-title">${sec.title}</div>`;
+    sec.sentences.forEach((sent, senti) => {
+      const words = sent.thai.split(/\s{2,}/);
+      const wordSpans = words.map(w => {
+        const trimmed = w.replace(/["""']/g, '').trim();
+        const sentMatch = sent.vocab.find(v => trimmed.includes(v.thai) || v.thai.includes(trimmed));
+        const globalMatch = !sentMatch && allVocab.find(v => trimmed.includes(v.thai) || v.thai.includes(trimmed));
+        const vocabMatch = sentMatch || globalMatch;
+        if (vocabMatch) {
+          const cls = globalMatch ? 'word word-review' : 'word';
+          return `<span class="${cls}" data-thai="${vocabMatch.thai}" data-roman="${vocabMatch.roman}" data-zh="${vocabMatch.zh}" data-en="${vocabMatch.en}" data-struct="${vocabMatch.struct}">${w}</span>`;
+        }
+        return `<span class="word">${w}</span>`;
+      }).join('  ');
+
+      const sentText = sent.thai.replace(/\s{2,}/g, ' ');
+      html += `<div class="sentence-card">
+        <div class="thai-sentence"><button class="sentence-speak" onclick="event.stopPropagation();speak('${sentText.replace(/'/g,"\\'")}', this)" title="播放整句">&#9655;</button>${wordSpans}</div>
+        <div class="zh-translation" onclick="this.classList.toggle('hidden')">
+          <span>${sent.zh}</span><span class="hint">（點擊隱藏/顯示）</span>
+        </div>
+        <span class="vocab-toggle" onclick="toggleVocab(this)">▶ 展開單字 (${sent.vocab.length})</span>
+        <div class="vocab-list collapsed">
+          ${sent.vocab.map(v => `
+            <div class="vocab-item" data-thai="${v.thai}" data-roman="${v.roman}" data-zh="${v.zh}" data-en="${v.en}" data-struct="${v.struct}">
+              <div style="display:flex;align-items:center;justify-content:center;"><button class="btn-speak" onclick="event.stopPropagation();speak('${v.thai}', this)" title="播放發音">&#9835;</button></div>
+              <div><span class="v-thai">${v.thai}</span><br><span class="v-roman">${v.roman}</span></div>
+              <div><span class="v-meaning">${v.zh}</span><br><span class="v-english">${v.en}</span></div>
+              <div class="v-struct">← ${v.struct}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>`;
+    });
+  });
+  el.innerHTML = html;
+}
+
+function renderExamples() {
+  const el = document.getElementById('tab-examples');
+  let html = '<div class="section-title">常用例句</div><p style="color:#888;margin-bottom:16px;">點擊卡片展開例句</p>';
+  examples.forEach(ex => {
+    html += `<div class="example-card" onclick="this.classList.toggle('open')">
+      <span class="ex-word">${ex.word}</span><button class="btn-speak" onclick="event.stopPropagation();speak('${ex.word}', this)" title="播放單字">&#9835;</button><span class="ex-zh">${ex.zh}</span>
+      <div class="ex-sentences">
+        <div class="ex-thai"><button class="sentence-speak" onclick="event.stopPropagation();speak('${ex.thai_ex.replace(/\s{2,}/g,' ').replace(/'/g,"\\'")}', this)" title="播放例句">&#9655;</button>${ex.thai_ex}</div>
+        <div class="ex-cn">${ex.zh_ex}</div>
+      </div>
+    </div>`;
+  });
+  el.innerHTML = html;
+}
+
+function renderSimilar() {
+  const el = document.getElementById('tab-similar');
+  let html = '<div class="section-title">近似字整理</div>';
+  similarWords.forEach(s => {
+    html += `<div class="similar-card">
+      <div class="sim-word"><div class="sim-thai">${s.w1}<button class="btn-speak" onclick="speak('${s.w1}', this)" title="播放" style="margin-left:6px;">&#9835;</button></div><div class="sim-roman">${s.r1}</div><div class="sim-mean">${s.m1}</div></div>
+      <div class="sim-vs">VS</div>
+      <div class="sim-word"><div class="sim-thai">${s.w2}<button class="btn-speak" onclick="speak('${s.w2}', this)" title="播放" style="margin-left:6px;">&#9835;</button></div><div class="sim-roman">${s.r2}</div><div class="sim-mean">${s.m2}</div></div>
+      <div class="sim-note">${s.note}</div>
+    </div>`;
+  });
+  el.innerHTML = html;
+}
+
+// ===== FLASHCARD =====
+let fcIndex = 0;
+let fcList = [...allVocab];
+
+function renderFlashcard() {
+  const card = document.getElementById('flashcard');
+  card.classList.remove('revealed');
+  const v = fcList[fcIndex];
+  card.querySelector('.fc-thai').textContent = v.thai;
+  card.querySelector('.fc-roman').textContent = v.roman;
+  card.querySelector('.fc-zh').textContent = v.zh;
+  card.querySelector('.fc-en').textContent = v.en;
+  card.querySelector('.fc-struct').textContent = '← ' + v.struct;
+  document.getElementById('fc-progress').textContent = `${fcIndex + 1} / ${fcList.length}`;
+}
+function revealCard() { document.getElementById('flashcard').classList.add('revealed'); }
+function nextCard() { fcIndex = (fcIndex + 1) % fcList.length; renderFlashcard(); }
+function prevCard() { fcIndex = (fcIndex - 1 + fcList.length) % fcList.length; renderFlashcard(); }
+function shuffleCards() {
+  for (let i = fcList.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [fcList[i], fcList[j]] = [fcList[j], fcList[i]];
+  }
+  fcIndex = 0; renderFlashcard();
+}
+
+// ===== QUIZ =====
+let quizIndex = 0;
+let quizScore = 0;
+let quizTotal = 0;
+let quizList = [];
+let quizAnswered = false;
+
+function initQuiz() {
+  quizList = [...allVocab].sort(() => Math.random() - 0.5);
+  quizIndex = 0; quizScore = 0; quizTotal = 0; quizAnswered = false;
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const area = document.getElementById('quiz-area');
+  if (quizIndex >= quizList.length) {
+    area.innerHTML = `<div style="text-align:center;padding:60px 0;">
+      <div style="font-size:48px;margin-bottom:16px;">🎉</div>
+      <div style="font-size:24px;color:#fff;">測驗完成！</div>
+      <div style="font-size:18px;color:#7c6ff7;margin-top:12px;">${quizScore} / ${quizTotal} 正確 (${Math.round(quizScore/quizTotal*100)}%)</div>
+      <button class="quiz-next" onclick="initQuiz()" style="margin-top:24px;">重新開始</button>
+    </div>`;
+    return;
+  }
+  const current = quizList[quizIndex];
+  // Generate 3 wrong options
+  const wrongs = allVocab.filter(v => v.thai !== current.thai).sort(() => Math.random() - 0.5).slice(0, 3);
+  const options = [current, ...wrongs].sort(() => Math.random() - 0.5);
+
+  area.innerHTML = `
+    <div class="quiz-score">得分：${quizScore} / ${quizTotal}</div>
+    <div class="quiz-question">${current.thai}<button class="btn-speak" onclick="speak('${current.thai}', this)" title="播放" style="margin-left:10px;vertical-align:middle;">&#9835;</button></div>
+    <div class="quiz-roman">${current.roman}</div>
+    <div class="quiz-options">
+      ${options.map(o => `<div class="quiz-option" data-correct="${o.thai === current.thai}" onclick="answerQuiz(this, '${o.thai === current.thai}')">${o.zh} (${o.en})</div>`).join('')}
+    </div>
+    <button class="quiz-next" id="quiz-next-btn" style="display:none;" onclick="nextQuiz()">下一題 →</button>
+  `;
+  quizAnswered = false;
+}
+
+function answerQuiz(el, isCorrect) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  quizTotal++;
+  if (isCorrect === 'true') {
+    el.classList.add('correct');
+    quizScore++;
+  } else {
+    el.classList.add('wrong');
+    document.querySelectorAll('.quiz-option').forEach(o => {
+      if (o.dataset.correct === 'true') o.classList.add('correct');
+    });
+  }
+  document.getElementById('quiz-next-btn').style.display = 'block';
+}
+
+function nextQuiz() { quizIndex++; renderQuiz(); }
+
+// ===== TABS =====
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+  if (name === 'flashcard') renderFlashcard();
+  if (name === 'quiz') initQuiz();
+}
+
+// ===== VOCAB TOGGLE =====
+function toggleVocab(el) {
+  const list = el.nextElementSibling;
+  list.classList.toggle('collapsed');
+  el.textContent = list.classList.contains('collapsed')
+    ? `▶ 展開單字 (${list.children.length})`
+    : `▼ 收起單字`;
+}
+
+// ===== TOOLTIP =====
+const tooltip = document.getElementById('tooltip');
+document.addEventListener('mouseover', e => {
+  const word = e.target.closest('.word[data-thai]');
+  if (!word) return;
+  tooltip.innerHTML = `
+    <div class="tt-thai">${word.dataset.thai}</div>
+    <div class="tt-roman">${word.dataset.roman}</div>
+    <div class="tt-zh">${word.dataset.zh}</div>
+    <div class="tt-en">${word.dataset.en}</div>
+    <div class="tt-struct">← ${word.dataset.struct}</div>
+  `;
+  tooltip.style.display = 'block';
+  const r = word.getBoundingClientRect();
+  let left = r.left;
+  let top = r.bottom + 8;
+  if (left + 240 > window.innerWidth) left = window.innerWidth - 250;
+  if (top + 150 > window.innerHeight) top = r.top - 150;
+  tooltip.style.left = left + 'px';
+  tooltip.style.top = top + 'px';
+  word.classList.add('highlighted');
+});
+document.addEventListener('mouseout', e => {
+  const word = e.target.closest('.word');
+  if (word) word.classList.remove('highlighted');
+  if (!e.relatedTarget || !e.relatedTarget.closest('.word-tooltip')) {
+    tooltip.style.display = 'none';
+  }
+});
+tooltip.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+document.addEventListener('click', e => {
+  const word = e.target.closest('.word');
+  if (!word) return;
+  const text = word.dataset.thai || word.textContent.replace(/\s+/g, '').trim();
+  if (text) speak(text, word);
+});
+
+// ===== INIT =====
+renderReading();
+renderExamples();
+renderSimilar();
+renderFlashcard();
+</script>
+</body>
+</html>
