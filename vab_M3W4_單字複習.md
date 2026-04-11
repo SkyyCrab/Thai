@@ -1,0 +1,626 @@
+# M3W4 單字整理
+
+## 目錄
+- [主題一：閱讀與分析](#閱讀與分析)
+- [主題二：組織與溝通](#組織與溝通)
+- [主題三：文化與學習](#文化與學習)
+- [主題四：環境與能源](#環境與能源)
+- [主題五：技能與思維](#技能與思維)
+- [主題六：人工智慧](#人工智慧)
+- [主題七：健康與工作](#健康與工作)
+- [主題八：商業與成長](#商業與成長)
+- [主題九：社群媒體](#社群媒體)
+- [主題十：福利與預算](#福利與預算)
+- [主題十一：在地與傳統](#在地與傳統)
+- [主題十二：風險與慢性](#風險與慢性)
+- [主題十三：才能與研究](#才能與研究)
+- [主題十四：自律與成長](#自律與成長)
+- [主題十五：飲食消費](#飲食消費)
+- [主題十六：組織創意](#組織創意)
+- [主題十七：氣候與農業](#氣候與農業)
+- [主題十八：溝通與衝突](#溝通與衝突)
+
+---
+
+<a id="閱讀與分析"></a>
+## 主題一：閱讀與分析
+
+- 1. **สรุป** [sà-rùp] 總結 (summarize)
+  - 字構：諧音「沙路」→ 整理出一條清楚的路
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สรุป ใจความ</span>（歸納要旨）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สรุป ผล</span>（總結結果）
+  - 例：ครู  ขอ  ให้  นักเรียน  สรุป  บทเรียน（老師請學生總結課文）
+
+- 2. **ใจความ** [jai-kwaam] 要旨/主要意思 (main idea)
+  - 字構：ใจ（心）+ ความ（話/意思）= 心中的意思
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ใจความ สำคัญ</span>（重要要旨）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">จับ ใจความ</span>（掌握要旨）
+  - 例：นักเรียน  ต้อง  จับ  ใจความ  สำคัญ  ให้  ได้（學生必須掌握重要要旨）
+
+- 3. **ประเด็น** [prà-den] 重點/論點 (point)
+  - 字構：諧音「把電」→ 把握關鍵電流（重點）
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ประเด็น สำคัญ</span>（重要論點）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ตั้ง ประเด็น</span>（提出論點）
+  - 例：เขา  พูด  ตรง  ประเด็น  มาก（他說話非常切中要點）
+
+- 4. **ข้อความ** [khôo-kwaam] 文字/訊息 (text)
+  - 字構：ข้อ（條款/項目）+ ความ（話/內容）= 一條文字內容
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่ง ข้อความ</span>（傳送訊息）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ข้อความ สั้น</span>（簡短訊息）
+  - 例：เธอ  ส่ง  ข้อความ  มา  หา  ฉัน（她傳了訊息給我）
+
+- 5. **สื่อสาร** [sùe-săan] 溝通/傳達 (communicate)
+  - 字構：สื่อ（媒介/傳達）+ สาร（內容/訊息）= 傳遞內容
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สื่อสาร อย่างมีประสิทธิภาพ</span>（有效溝通）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สื่อสาร ภาษาไทย</span>（用泰語溝通）
+  - 例：การ  สื่อสาร  ที่  ดี  ช่วย  ลด  ความขัดแย้ง（良好的溝通有助減少衝突）
+
+- 6. **บทสนทนา** [bòt-sǒn-tá-naa] 對話/會話 (dialogue)
+  - 字構：บท（段落/篇）+ สนทนา（交談）= 對話段落
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ฝึก บทสนทนา</span>（練習對話）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">บทสนทนา ภาษาไทย</span>（泰語對話）
+  - 例：นักเรียน  ฝึก  บทสนทนา  เป็น  คู่（學生兩人一組練習對話）
+
+- 7. **เนื้อหา** [núea-hǎa] 內容 (content)
+  - 字構：เนื้อ（肉/實質）+ หา（找/主體）= 實質內容
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เนื้อหา สำคัญ</span>（重要內容）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เนื้อหา บทเรียน</span>（課文內容）
+  - 例：เนื้อหา  ใน  บทความ  นี้  น่าสนใจ  มาก（這篇文章的內容非常有趣）
+
+- 8. **โดยรวม** [dooi-ruam] 整體上 (overall)
+  - 字構：โดย（由/透過）+ รวม（總合）= 總合來看
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">โดยรวม แล้ว</span>（整體而言）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ภาพ โดยรวม</span>（整體面貌）
+  - 例：โดยรวม  แล้ว  งาน  ของ  เขา  ดี  มาก（整體而言他的作品很好）
+
+- 9. **แยกแยะ** [yâek-yáe] 區分/辨別 (distinguish)
+  - 字構：แยก（分開）+ แยะ（多/散）= 分辨清楚
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แยกแยะ ข้อมูล</span>（分辨資料）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แยกแยะ ถูกผิด</span>（分辨對錯）
+  - 例：เรา  ต้อง  แยกแยะ  ข้อเท็จจริง  กับ  ความคิดเห็น（我們必須區分事實與意見）
+
+- 10. **ปลีกย่อย** [plìik-yôoi] 細節/次要 (minor)
+  - 字構：ปลีก（零散/個別）+ ย่อย（細小）= 細枝末節
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">รายละเอียด ปลีกย่อย</span>（細節）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เรื่อง ปลีกย่อย</span>（次要的事）
+  - 例：ไม่  ต้อง  สน  รายละเอียด  ปลีกย่อย  ก่อน（先不必在意細節）
+
+- 11. **วิเคราะห์** [wí-khráw] 分析 (analyze)
+  - 字構：วิ（深入/仔細）+ เคราะห์（考量）= 深入考量
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">วิเคราะห์ ข้อมูล</span>（分析資料）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">วิเคราะห์ สถานการณ์</span>（分析情況）
+  - 例：นักวิทยาศาสตร์  วิเคราะห์  ผล  การทดลอง（科學家分析實驗結果）
+
+- 12. **คร่าว** [khrâao] 大略/粗略 (roughly)
+  - 記憶法：諧音「考」→ 大考前先大略瀏覽一遍
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">คร่าว ๆ</span>（大略地）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เข้าใจ คร่าว ๆ</span>（大略了解）
+  - 例：ขอ  อธิบาย  คร่าว ๆ  ก่อน  นะ（先大略說明一下）
+
+- 13. **ชื่อเรื่อง** [chûe-rûeang] 標題 (title)
+  - 字構：ชื่อ（名字）+ เรื่อง（故事/主題）= 主題名稱
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ตั้ง ชื่อเรื่อง</span>（訂標題）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ชื่อเรื่อง บทความ</span>（文章標題）
+  - 例：ชื่อเรื่อง  ของ  รายงาน  ต้อง  ชัดเจน（報告標題必須清楚）
+
+- 14. **หัวข้อย่อย** [hǔa-khôo-yôoi] 小標題 (sub-heading)
+  - 字構：หัวข้อ（標題/題目）+ ย่อย（細小）= 細分標題
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แบ่ง หัวข้อย่อย</span>（分小標題）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">หัวข้อย่อย สำคัญ</span>（重要小標）
+  - 例：บทความ  นี้  มี  หัวข้อย่อย  หลาย  ข้อ（這篇文章有許多小標題）
+
+- 15. **ย่อหน้า** [yôo-nâa] 段落 (paragraph)
+  - 字構：ย่อ（縮短/分）+ หน้า（頁/行）= 縮排分段
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แบ่ง ย่อหน้า</span>（分段落）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ย่อหน้า แรก</span>（第一段落）
+  - 例：เรียงความ  ควร  มี  ย่อหน้า  ที่  ชัดเจน（作文應有清晰的段落）
+
+---
+
+<a id="組織與溝通"></a>
+## 主題二：組織與溝通
+
+- 16. **องค์กร** [ong-korn] 組織/機構 (organization)
+  - 字構：องค์（機體/尊稱）+ กร（做事者）= 工作機體
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">องค์กร ระหว่างประเทศ</span>（國際組織）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">องค์กร ภาครัฐ</span>（政府機構）
+  - 例：เขา  ทำงาน  ใน  องค์กร  ระหว่างประเทศ（他在國際組織工作）
+
+- 17. **สนับสนุน** [sà-nàp-sà-nǔn] 支持/贊助 (support)
+  - 字構：สนับ（底部支撐）+ สนุน（鼓勵助力）= 從底部撐起鼓勵
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สนับสนุน นโยบาย</span>（支持政策）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สนับสนุน ทางการเงิน</span>（財務支持）
+  - 例：รัฐบาล  สนับสนุน  เงินทุน  ให้  นักเรียน（政府提供學生資金支持）
+
+- 18. **ค่าใช้จ่าย** [khâa-chái-jàai] 費用/支出 (expense)
+  - 字構：ค่า（費用）+ ใช้（使用）+ จ่าย（付出）= 使用後付出的費用
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ค่าใช้จ่าย ประจำวัน</span>（日常開銷）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ลด ค่าใช้จ่าย</span>（減少開銷）
+  - 例：ค่าใช้จ่าย  ใน  การ  เดินทาง  สูง  มาก（交通費用非常高）
+
+- 19. **ลักษณะ** [lák-sà-nà] 特性/樣式 (type/characteristic)
+  - 記憶法：諧音「拉克沙那」→ 拉出特色來仔細觀察
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ลักษณะ นิสัย</span>（性格特質）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ลักษณะ การทำงาน</span>（工作方式）
+  - 例：ลักษณะ  นิสัย  ของ  เขา  ดี  มาก（他的性格特質非常好）
+
+- 20. **ประสิทธิภาพ** [prà-sìt-tì-phâap] 效率/效能 (efficiency)
+  - 字構：ประสิทธิ（效力/成效）+ ภาพ（狀態/面貌）= 效力的狀態
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เพิ่ม ประสิทธิภาพ</span>（提升效率）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ประสิทธิภาพ การทำงาน</span>（工作效率）
+  - 例：การ  ใช้  เทคโนโลยี  ช่วย  เพิ่ม  ประสิทธิภาพ  การทำงาน（使用科技有助提升工作效率）
+
+---
+
+<a id="文化與學習"></a>
+## 主題三：文化與學習
+
+- 21. **วัฒนธรรม** [wát-tá-na-tham] 文化 (culture)
+  - 字構：วัฒน（繁盛/發展）+ ธรรม（道/法則）= 發展的道理法則
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อนุรักษ์ วัฒนธรรม</span>（保護文化）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">วัฒนธรรม ท้องถิ่น</span>（地方文化）
+  - 例：เรา  ควร  อนุรักษ์  วัฒนธรรม  ท้องถิ่น（我們應保護地方文化）
+
+- 22. **แตกต่าง** [tàek-tàang] 不同/差異 (different)
+  - 字構：แตก（裂開/分開）+ ต่าง（不同/各自）= 分開各不同
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แตกต่าง กัน</span>（彼此不同）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความ แตกต่าง</span>（差異）
+  - 例：วัฒนธรรม  ของ  แต่ละ  ประเทศ  แตกต่าง  กัน（各國文化彼此不同）
+
+- 23. **แม้ว่า** [máe-wâa] 即使/雖然 (although)
+  - 記憶法：แม้（即使）+ ว่า（說）= 即使說了也…
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แม้ว่า ... ก็ยัง</span>（即使…仍然）
+  - 例：แม้ว่า  จะ  ยาก  ก็  ต้อง  พยายาม（即使困難也必須努力）
+
+- 24. **ฝึกฝน** [fùek-fǒn] 訓練/磨練 (training/practice)
+  - 字構：ฝึก（練習）+ ฝน（磨礪）= 不斷磨礪練習
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ฝึกฝน ทักษะ</span>（磨練技能）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ฝึกฝน อย่างสม่ำเสมอ</span>（持續練習）
+  - 例：เขา  ฝึกฝน  ภาษาไทย  ทุก  วัน（他每天磨練泰語）
+
+- 25. **ระยะ** [rá-yá] 階段/距離 (stage/distance)
+  - 記憶法：諧音「拉亞」→ 拉開一段距離
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ระยะ สั้น</span>（短期）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ระยะ ยาว</span>（長期）
+  - 例：โครงการ  นี้  ต้อง  ใช้  เวลา  ระยะ  ยาว（這個計畫需要長期時間）
+
+- 26. **ท้อแท้** [thôo-tháe] 灰心/沮喪 (discouraged)
+  - 字構：ท้อ（灰心）+ แท้（真的/實在）= 真的很灰心
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">รู้สึก ท้อแท้</span>（感到灰心）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อย่า ท้อแท้</span>（不要灰心）
+  - 例：อย่า  ท้อแท้  เมื่อ  เผชิญ  ความล้มเหลว（面對失敗時不要灰心）
+
+---
+
+<a id="環境與能源"></a>
+## 主題四：環境與能源
+
+- 27. **มลพิษ** [mon-lá-phít] 污染 (pollution)
+  - 字構：มล（污穢/垢）+ พิษ（毒）= 有毒的污穢
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มลพิษ ทางอากาศ</span>（空氣污染）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ลด มลพิษ</span>（減少污染）
+  - 例：มลพิษ  ทางอากาศ  ส่งผลเสีย  ต่อ  สุขภาพ（空氣污染對健康有負面影響）
+
+- 28. **ปัจจัย** [pàt-jai] 因素/要素 (factor)
+  - 字構：ปัจ（現在/直接）+ จัย（心/要素）= 直接影響的要素
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ปัจจัย สำคัญ</span>（重要因素）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ปัจจัย สี่</span>（四大生活必需）
+  - 例：มี  หลาย  ปัจจัย  ที่  ส่งผล  ต่อ  การเรียน（有許多因素影響學習）
+
+- 29. **จราจร** [já-raa-jorn] 交通 (traffic)
+  - 記憶法：諧音「加拉佐」→ 車輛加入道路擠在一起
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ติด จราจร</span>（塞車）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">จราจร หนาแน่น</span>（交通密集）
+  - 例：กรุงเทพ  มี  ปัญหา  จราจร  หนาแน่น  มาก（曼谷交通非常擁擠）
+
+- 30. **หนาแน่น** [nǎa-nâen] 密集/擁擠 (dense)
+  - 字構：หนา（厚/密）+ แน่น（緊/實）= 又密又緊實
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ประชากร หนาแน่น</span>（人口密集）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">จราจร หนาแน่น</span>（交通擁擠）
+  - 例：เมืองใหญ่  มัก  มี  ประชากร  หนาแน่น（大城市通常人口密集）
+
+- 31. **อุตสาหกรรม** [ùt-sǎa-hà-kam] 工業/產業 (industry)
+  - 字構：อุตสาห（努力/勤勉）+ กรรม（工作/業）= 勤勉的工作生產
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อุตสาหกรรม การผลิต</span>（製造業）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อุตสาหกรรม การท่องเที่ยว</span>（旅遊業）
+  - 例：อุตสาหกรรม  การท่องเที่ยว  สร้างรายได้  ให้  ประเทศ（旅遊業為國家創造收入）
+
+- 32. **เผาไหม้** [phǎo-mâi] 燃燒 (burn)
+  - 字構：เผา（燒）+ ไหม้（焦燒）= 燃燒焦掉
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เผาไหม้ เชื้อเพลิง</span>（燃燒燃料）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ก๊าซ จากการเผาไหม้</span>（燃燒氣體）
+  - 例：การ  เผาไหม้  เชื้อเพลิง  ทำให้  เกิด  มลพิษ（燃燒燃料造成污染）
+
+- 33. **เชื้อเพลิง** [chúea-phloeng] 燃料 (fuel)
+  - 字構：เชื้อ（種子/引火物）+ เพลิง（火焰）= 引發火焰的東西
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เชื้อเพลิง ฟอสซิล</span>（化石燃料）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ประหยัด เชื้อเพลิง</span>（節省燃料）
+  - 例：รถยนต์  ส่วนใหญ่  ใช้  เชื้อเพลิง  ฟอสซิล（大多數汽車使用化石燃料）
+
+- 34. **มาตรการ** [mâat-trà-kaan] 措施/方案 (measure)
+  - 字構：มาตร（標準/尺度）+ การ（行動）= 依標準採取的行動
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มาตรการ ป้องกัน</span>（預防措施）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มาตรการ แก้ไข</span>（改善措施）
+  - 例：รัฐบาล  ออก  มาตรการ  ลด  มลพิษ（政府推出減少污染的措施）
+
+- 35. **อย่างยั่งยืน** [yàang-yâng-yuen] 永續地 (sustainably)
+  - 字構：ยั่ง（穩固）+ ยืน（站立/持久）= 穩固持久站立
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">พัฒนา อย่างยั่งยืน</span>（永續發展）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ใช้ทรัพยากร อย่างยั่งยืน</span>（永續使用資源）
+  - 例：เรา  ต้อง  พัฒนา  เศรษฐกิจ  อย่างยั่งยืน（我們必須永續發展經濟）
+
+- 36. **อาศัย** [aa-sǎi] 依靠/居住 (rely on/live)
+  - 記憶法：諧音「阿賽」→ 阿賽依靠家人生活
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อาศัย อยู่</span>（居住）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อาศัย พึ่งพา</span>（依賴）
+  - 例：เขา  ยัง  อาศัย  อยู่  กับ  พ่อแม่（他還是住在父母家）
+
+- 37. **ร่วมมือ** [rûam-mue] 合作/協力 (cooperate)
+  - 字構：ร่วม（共同）+ มือ（手）= 共同出手
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ร่วมมือ กัน</span>（互相合作）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ร่วมมือ ระหว่างประเทศ</span>（國際合作）
+  - 例：ทุกประเทศ  ต้อง  ร่วมมือ  กัน  แก้  ปัญหา  โลกร้อน（所有國家必須合作解決暖化問題）
+
+---
+
+<a id="技能與思維"></a>
+## 主題五：技能與思維
+
+- 38. **ทักษะ** [thák-sà] 技能 (skill)
+  - 記憶法：諧音「塔克沙」→ 塔上武士磨練技能
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ทักษะ การสื่อสาร</span>（溝通技能）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">พัฒนา ทักษะ</span>（發展技能）
+  - 例：การอ่าน  ช่วย  พัฒนา  ทักษะ  การคิด（閱讀有助發展思考技能）
+
+- 39. **การคิด** [kaan-khít] 思考 (thinking)
+  - 字構：การ（行為）+ คิด（思考）= 思考的行為
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การคิด วิเคราะห์</span>（分析思考）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การคิด สร้างสรรค์</span>（創意思考）
+  - 例：การคิด  วิเคราะห์  เป็น  ทักษะ  สำคัญ  ใน  ศตวรรษ  ที่  21（分析思考是21世紀的重要技能）
+
+- 40. **หลากหลายด้าน** [lǎak-lǎai-dâan] 多方面 (various fields)
+  - 字構：หลากหลาย（多種多樣）+ ด้าน（方面）= 多種方面
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ทักษะ หลากหลายด้าน</span>（多方面技能）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความรู้ หลากหลายด้าน</span>（多方面知識）
+  - 例：นักเรียน  ควร  มี  ความรู้  หลากหลายด้าน（學生應具備多方面知識）
+
+- 41. **เสริมสร้าง** [sǒem-sâang] 強化/建立 (strengthen)
+  - 字構：เสริม（補強/添加）+ สร้าง（建造/創造）= 補強建立
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เสริมสร้าง ทักษะ</span>（強化技能）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เสริมสร้าง ความสัมพันธ์</span>（建立關係）
+  - 例：การเล่นกีฬา  เสริมสร้าง  ร่างกาย  ให้  แข็งแรง（運動能強化身體）
+
+- 42. **ระยะยาว** [rá-yá-yaao] 長期 (long term)
+  - 字構：ระยะ（距離/階段）+ ยาว（長）= 長距離/長期
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แผน ระยะยาว</span>（長期計畫）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ผล ระยะยาว</span>（長期效果）
+  - 例：การลงทุน  ใน  การศึกษา  ให้  ผล  ระยะยาว（投資教育有長期效益）
+
+---
+
+<a id="人工智慧"></a>
+## 主題六：人工智慧
+
+- 43. **ปัญญาประดิษฐ์** [pan-yaa-prà-dìt] 人工智慧 (AI)
+  - 字構：ปัญญา（智慧）+ ประดิษฐ์（發明/人造）= 人造的智慧
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">พัฒนา ปัญญาประดิษฐ์</span>（開發AI）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ปัญญาประดิษฐ์ ทางการแพทย์</span>（醫療AI）
+  - 例：ปัญญาประดิษฐ์  กำลัง  เปลี่ยนแปลง  โลก  อย่างรวดเร็ว（AI正在迅速改變世界）
+
+- 44. **กังวล** [kang-won] 擔心/憂慮 (worry)
+  - 記憶法：諧音「扛碗」→ 扛著碗一直擔心摔破
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">กังวล เรื่อง</span>（擔心某事）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความ กังวล</span>（擔憂）
+  - 例：เขา  กังวล  เรื่อง  อนาคต  ของ  ตัวเอง（他擔心自己的未來）
+
+- 45. **การทดแทน** [kaan-thót-thaen] 替代/取代 (replacement)
+  - 字構：การ（行為）+ ทดแทน（取代/補償）= 取代的行為
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การทดแทน แรงงาน</span>（取代勞動力）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">หาการทดแทน</span>（尋找替代方案）
+  - 例：หลายคน  กังวล  ว่า  AI  จะ  เป็น  การทดแทน  แรงงาน  มนุษย์（許多人擔心AI會取代人類勞動力）
+
+- 46. **อนาคต** [à-naa-khót] 未來 (future)
+  - 字構：อน（無/不）+ อาคต（來到）= 尚未到來的事
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อนาคต ของประเทศ</span>（國家的未來）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มอง อนาคต</span>（展望未來）
+  - 例：การศึกษา  คือ  การลงทุน  เพื่อ  อนาคต（教育是為未來的投資）
+
+---
+
+<a id="健康與工作"></a>
+## 主題七：健康與工作
+
+- 47. **หักโหม** [hàk-hôom] 過度勞累 (overdo)
+  - 字構：หัก（折斷/猛力）+ โหม（猛烈衝）= 猛力衝到折斷
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">หักโหม ทำงาน</span>（過度工作）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">หักโหม ออกกำลังกาย</span>（過度運動）
+  - 例：อย่า  หักโหม  ออกกำลังกาย  จนเกินไป（不要過度運動）
+
+- 48. **ส่งผลเสีย** [sòng-phǒn-sǐa] 造成負面影響 (cause negative effect)
+  - 字構：ส่ง（傳送）+ ผล（結果）+ เสีย（壞掉）= 傳送壞的結果
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งผลเสีย ต่อสุขภาพ</span>（對健康有負面影響）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งผลเสีย ต่อสังคม</span>（對社會有負面影響）
+  - 例：การนอนดึก  ส่งผลเสีย  ต่อ  สุขภาพ（熬夜對健康有負面影響）
+
+- 49. **ผู้เชี่ยวชาญ** [phûu-chîao-chaan] 專家 (expert)
+  - 字構：ผู้（人/者）+ เชี่ยวชาญ（精通/熟練）= 精通的人
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ผู้เชี่ยวชาญ ด้าน</span>（某領域專家）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">คำแนะนำ จากผู้เชี่ยวชาญ</span>（專家建議）
+  - 例：ผู้เชี่ยวชาญ  แนะนำ  ให้  ออกกำลังกาย  สม่ำเสมอ（專家建議規律運動）
+
+- 50. **การวางแผน** [kaan-waang-phǎen] 規劃/計畫 (planning)
+  - 字構：การ（行為）+ วาง（放置）+ แผน（計畫）= 制定計畫的行為
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การวางแผน การเงิน</span>（財務規劃）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การวางแผน ชีวิต</span>（人生規劃）
+  - 例：การวางแผน  ล่วงหน้า  ช่วย  ลด  ปัญหา（提前規劃有助減少問題）
+
+- 51. **สภาพ** [sà-phâap] 狀態/情況 (status/condition)
+  - 記憶法：諧音「沙啪」→ 啪一聲說明當下狀態
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สภาพ แวดล้อม</span>（環境狀況）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สภาพ อากาศ</span>（天氣狀況）
+  - 例：สภาพอากาศ  วันนี้  ร้อน  มาก（今天天氣狀況非常熱）
+
+---
+
+<a id="商業與成長"></a>
+## 主題八：商業與成長
+
+- 52. **ขนาดเล็ก** [khà-nàat-lék] 小規模 (small-sized)
+  - 字構：ขนาด（大小/規模）+ เล็ก（小）= 小規模
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ธุรกิจ ขนาดเล็ก</span>（小型企業）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ขนาดเล็ก ถึงกลาง</span>（中小型）
+  - 例：ธุรกิจขนาดเล็ก  เผชิญ  ความท้าทาย  มาก（小型企業面臨許多挑戰）
+
+- 53. **เผชิญ** [phà-chooen] 面對/面臨 (face)
+  - 記憶法：諧音「怕醜因」→ 面對挑戰不怕醜
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เผชิญ ความท้าทาย</span>（面對挑戰）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เผชิญ ปัญหา</span>（面臨問題）
+  - 例：ทุกคน  ต้อง  เผชิญ  ปัญหา  ใน  ชีวิต（每個人都必須面對生活中的問題）
+
+- 54. **ความท้าทาย** [khwaam-thâa-thaai] 挑戰 (challenge)
+  - 字構：ความ（抽象名詞化）+ ท้าทาย（挑戰）= 挑戰這件事
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เผชิญ ความท้าทาย</span>（面對挑戰）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความท้าทาย ใหม่</span>（新的挑戰）
+  - 例：การเรียน  ภาษาใหม่  เป็น  ความท้าทาย  ที่  น่าตื่นเต้น（學新語言是令人興奮的挑戰）
+
+- 55. **แข่งขัน** [khàeng-khǎn] 競爭/比賽 (competition)
+  - 字構：แข่ง（競賽）+ ขัน（奮力）= 奮力競賽
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แข่งขัน ทางการค้า</span>（商業競爭）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การ แข่งขัน</span>（競爭（名詞））
+  - 例：ธุรกิจขนาดเล็ก  ต้อง  แข่งขัน  กับ  บริษัทใหญ่（小型企業必須與大公司競爭）
+
+- 56. **เอกลักษณ์** [êek-gà-lák] 獨特性/特色 (uniqueness)
+  - 字構：เอก（唯一/獨特）+ ลักษณ์（特徵）= 唯一的特徵
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เอกลักษณ์ ของแบรนด์</span>（品牌特色）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">รักษา เอกลักษณ์</span>（保持特色）
+  - 例：สินค้า  ต้อง  มี  เอกลักษณ์  เพื่อ  ดึงดูด  ลูกค้า（產品必須有特色才能吸引顧客）
+
+- 57. **เติบโต** [tôeep-toh] 成長/發展 (grow)
+  - 字構：เติบ（長大/增長）+ โต（大/成熟）= 長大成熟
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เติบโต อย่างยั่งยืน</span>（永續成長）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อัตรา การเติบโต</span>（成長率）
+  - 例：ธุรกิจนี้  เติบโต  อย่างรวดเร็ว（這個事業成長迅速）
+
+- 58. **มั่นคง** [mân-khong] 穩定/牢固 (stable)
+  - 字構：มั่น（堅定/牢固）+ คง（持續/維持）= 堅定持續維持
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ฐานะ มั่นคง</span>（財務穩定）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">งาน ที่มั่นคง</span>（穩定的工作）
+  - 例：เขา  ต้องการ  งาน  ที่มั่นคง  และ  มีรายได้  ดี（他想要一份穩定且收入好的工作）
+
+---
+
+<a id="社群媒體"></a>
+## 主題九：社群媒體
+
+- 59. **สื่อสังคมออนไลน์** [sùe-sǎng-khom-on-lai] 社群媒體 (social media)
+  - 字構：สื่อ（媒介）+ สังคม（社會）+ ออนไลน์（線上）= 線上社會媒介
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ใช้ สื่อสังคมออนไลน์</span>（使用社群媒體）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ติดตาม ทางสื่อสังคมออนไลน์</span>（在社群媒體追蹤）
+  - 例：วัยรุ่น  ส่วนใหญ่  ใช้  สื่อสังคมออนไลน์  ทุก  วัน（大多數青少年每天使用社群媒體）
+
+- 60. **อย่างต่อเนื่อง** [yàang-tòo-nûeang] 持續地 (continuously)
+  - 字構：อย่าง（方式）+ ต่อ（接續）+ เนื่อง（連接）= 不斷接連的方式
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เรียนรู้ อย่างต่อเนื่อง</span>（持續學習）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">พัฒนา อย่างต่อเนื่อง</span>（持續發展）
+  - 例：เขา  พัฒนา  ตัวเอง  อย่างต่อเนื่อง（他持續不斷地自我提升）
+
+- 61. **ส่งผล** [sòng-phǒn] 影響/帶來結果 (affect)
+  - 字構：ส่ง（傳送）+ ผล（結果）= 傳送出結果
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งผล ต่อสุขภาพ</span>（影響健康）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งผล ดี</span>（帶來好影響）
+  - 例：การออกกำลังกาย  ส่งผลดี  ต่อ  ร่างกาย（運動對身體帶來正面影響）
+
+- 62. **วัยรุ่น** [wai-rûn] 青少年 (teenager)
+  - 字構：วัย（年齡/時期）+ รุ่น（世代/熱情）= 充滿熱情的年齡
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ปัญหา วัยรุ่น</span>（青少年問題）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">วัยรุ่น ไทย</span>（泰國青少年）
+  - 例：วัยรุ่น  ควร  ใช้  สื่อสังคมออนไลน์  อย่างระมัดระวัง（青少年應謹慎使用社群媒體）
+
+- 63. **เปรียบเทียบ** [prìap-thîap] 比較 (compare)
+  - 字構：เปรียบ（比擬）+ เทียบ（對照）= 比擬對照
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เปรียบเทียบ ราคา</span>（比較價格）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เปรียบเทียบ กัน</span>（互相比較）
+  - 例：อย่า  เปรียบเทียบ  ตัวเอง  กับ  คนอื่น（不要把自己和別人比較）
+
+---
+
+<a id="福利與預算"></a>
+## 主題十：福利與預算
+
+- 64. **สวัสดิการ** [sà-wàt-dì-kaan] 福利 (welfare)
+  - 字構：สวัสดิ（安康/吉祥）+ การ（事務）= 安康事務
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สวัสดิการ พนักงาน</span>（員工福利）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สวัสดิการ สังคม</span>（社會福利）
+  - 例：บริษัทนี้  มี  สวัสดิการ  พนักงาน  ที่ดี（這家公司員工福利很好）
+
+- 65. **การเตรียม** [kaan-triam] 準備 (preparation)
+  - 字構：การ（行為）+ เตรียม（準備）= 準備的行為
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การเตรียม ความพร้อม</span>（預備就緒）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การเตรียม สอบ</span>（備考）
+  - 例：การเตรียม  ล่วงหน้า  ทำให้  งาน  สำเร็จ  ได้  ง่ายขึ้น（提前準備讓工作更容易成功）
+
+- 66. **ความพร้อม** [khwaam-phróm] 準備就緒 (readiness)
+  - 字構：ความ（抽象名詞）+ พร้อม（準備好）= 準備好這件事
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ตรวจสอบ ความพร้อม</span>（檢查準備狀態）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความพร้อม ของทีม</span>（團隊準備狀態）
+  - 例：ความพร้อม  ของ  ทีม  เป็น  ปัจจัย  สำคัญ  ของ  ความสำเร็จ（團隊的準備狀態是成功的重要因素）
+
+- 67. **งบประมาณ** [ngop-prà-maan] 預算 (budget)
+  - 字構：งบ（帳冊/預算）+ ประมาณ（估計）= 估計帳冊
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">งบประมาณ ประจำปี</span>（年度預算）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">จัดสรร งบประมาณ</span>（分配預算）
+  - 例：รัฐบาล  จัดสรร  งบประมาณ  ให้  กับ  การศึกษา（政府分配預算給教育）
+
+---
+
+<a id="在地與傳統"></a>
+## 主題十一：在地與傳統
+
+- 68. **กระตุ้น** [grà-tûn] 刺激/促進 (stimulate)
+  - 記憶法：諧音「葛突恩」→ 突然刺激一下
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">กระตุ้น เศรษฐกิจ</span>（刺激經濟）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">กระตุ้น การเรียนรู้</span>（促進學習）
+  - 例：รัฐบาล  ใช้  มาตรการ  กระตุ้น  เศรษฐกิจ（政府採取措施刺激經濟）
+
+- 69. **ท้องถิ่น** [thông-thìn] 地方/在地 (local)
+  - 字構：ท้อง（腹部/地區）+ ถิ่น（地方/故土）= 地區故土
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">วัฒนธรรม ท้องถิ่น</span>（地方文化）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เศรษฐกิจ ท้องถิ่น</span>（地方經濟）
+  - 例：ควร  สนับสนุน  สินค้าท้องถิ่น  เพื่อ  กระตุ้น  เศรษฐกิจ（應支持在地商品以刺激經濟）
+
+- 70. **ทำลาย** [tham-laai] 破壞/毀滅 (destroy)
+  - 字構：ทำ（做/使）+ ลาย（紋路消失/散）= 使之消散破壞
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ทำลาย สิ่งแวดล้อม</span>（破壞環境）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ทำลาย ความสัมพันธ์</span>（破壞關係）
+  - 例：มลพิษ  ทำลาย  ระบบนิเวศ  ของ  โลก（污染破壞地球的生態系統）
+
+- 71. **ดั้งเดิม** [dâng-doem] 原始/傳統的 (original/traditional)
+  - 字構：ดั้ง（原本/起源）+ เดิม（原來/最初）= 源頭最初
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">วิถีชีวิต แบบดั้งเดิม</span>（傳統生活方式）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">รักษา ของดั้งเดิม</span>（保留傳統）
+  - 例：ชุมชนนี้  รักษา  วิถีชีวิต  แบบดั้งเดิม  ไว้  ได้（這個社區保留了傳統生活方式）
+
+---
+
+<a id="風險與慢性"></a>
+## 主題十二：風險與慢性
+
+- 72. **อีกทั้งยัง** [ìik-tháng-yang] 此外/而且 (moreover)
+  - 記憶法：อีก（還有）+ ทั้ง（加上）+ ยัง（還）= 還加上更多
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อีกทั้งยัง มี</span>（此外還有）
+  - 例：เขา  เก่ง  คณิตศาสตร์  อีกทั้งยัง  เก่ง  ภาษา  ด้วย（他數學好，此外語言也很好）
+
+- 73. **ความเสี่ยง** [khwaam-sìang] 風險 (risk)
+  - 字構：ความ（抽象名詞）+ เสี่ยง（冒險/有風險）= 有風險這件事
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความเสี่ยง สูง</span>（高風險）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">จัดการ ความเสี่ยง</span>（管理風險）
+  - 例：การลงทุน  ใน  หุ้น  มี  ความเสี่ยง  สูง（股票投資風險較高）
+
+- 74. **เรื้อรัง** [rúea-rang] 慢性/長期的 (chronic)
+  - 字構：เรื้อ（延伸/拖長）+ รัง（巢/延續）= 持續拖長不去
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">โรค เรื้อรัง</span>（慢性病）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ปัญหา เรื้อรัง</span>（長期問題）
+  - 例：โรคเบาหวาน  เป็น  โรคเรื้อรัง  ที่  ต้องดูแล  ตลอดชีวิต（糖尿病是需要終生照護的慢性病）
+
+- 75. **ชนิด** [chá-nît] 種類/類型 (type/kind)
+  - 記憶法：諧音「查逆」→ 查查看是哪種
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ชนิด ของ</span>（某種類的）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">หลาย ชนิด</span>（多種類）
+  - 例：มี  หลายชนิด  ของ  อาหาร  ที่  มีประโยชน์  ต่อ  สุขภาพ（有許多種類的食物對健康有益）
+
+- 76. **ความมั่นคง** [khwaam-mân-khong] 穩定性 (stability)
+  - 字構：ความ（抽象名詞）+ มั่นคง（穩定）= 穩定這件事
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความมั่นคง ทางการเงิน</span>（財務穩定）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความมั่นคง ของชาติ</span>（國家安全）
+  - 例：ทุกคน  ต้องการ  ความมั่นคง  ใน  ชีวิต（每個人都需要生活的穩定感）
+
+- 77. **หนี้สิน** [nîi-sǐn] 債務 (debt)
+  - 字構：หนี้（債）+ สิน（財產/物品）= 債務財物
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มี หนี้สิน</span>（有債務）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ชำระ หนี้สิน</span>（還清債務）
+  - 例：การบริหาร  หนี้สิน  ที่ดี  เป็น  สิ่งสำคัญ（良好的債務管理很重要）
+
+---
+
+<a id="才能與研究"></a>
+## 主題十三：才能與研究
+
+- 78. **พรสวรรค์** [phon-sà-wǎn] 天賦/才華 (talent)
+  - 字構：พร（祝福/賜予）+ สวรรค์（天堂）= 天堂賜予的祝福
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มี พรสวรรค์</span>（有天賦）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">พรสวรรค์ ด้านดนตรี</span>（音樂天賦）
+  - 例：เขา  มี  พรสวรรค์  ด้านดนตรี  ตั้งแต่  เด็ก（他從小就有音樂天賦）
+
+- 79. **งานวิจัย** [ngaan-wí-jai] 研究 (study/research)
+  - 字構：งาน（工作）+ วิจัย（研究）= 研究工作
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">งานวิจัย ชี้ว่า</span>（研究顯示）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ทำ งานวิจัย</span>（進行研究）
+  - 例：งานวิจัยล่าสุด  ชี้ว่า  การนอนหลับพอ  มีประโยชน์  มาก（最新研究顯示充足睡眠非常有益）
+
+- 80. **ชี้ว่า** [chîi-wâa] 指出/顯示 (indicate)
+  - 字構：ชี้（指出/指向）+ ว่า（說/表示）= 指出說
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">งานวิจัย ชี้ว่า</span>（研究指出）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ผลสำรวจ ชี้ว่า</span>（調查結果顯示）
+  - 例：ผลสำรวจ  ชี้ว่า  คนไทย  ส่วนใหญ่  ชอบ  อาหารเผ็ด（調查結果顯示大多數泰國人喜歡辣食）
+
+- 81. **บทบาท** [bòt-bàat] 角色/作用 (role)
+  - 字構：บท（段落/劇本）+ บาท（步伐/腳步）= 劇本中的每個腳步
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">บทบาท สำคัญ</span>（重要角色）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มีบทบาท ใน</span>（在...扮演角色）
+  - 例：ครู  มี  บทบาท  สำคัญ  ใน  การพัฒนา  เด็ก（老師在培育兒童方面扮演重要角色）
+
+- 82. **ไม่แพ้กัน** [mâi-pháe-kan] 毫不遜色 (no less than)
+  - 字構：ไม่（不）+ แพ้（輸）+ กัน（彼此）= 彼此不相差
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ดี ไม่แพ้กัน</span>（同樣好）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สำคัญ ไม่แพ้กัน</span>（同等重要）
+  - 例：ทักษะการสื่อสาร  สำคัญ  ไม่แพ้กัน  กับ  ความรู้  ด้านวิชาการ（溝通技能與學科知識同等重要）
+
+---
+
+<a id="自律與成長"></a>
+## 主題十四：自律與成長
+
+- 83. **เข้าถึง** [khâo-thǔng] 接觸/觸達 (reach/access)
+  - 字構：เข้า（進入）+ ถึง（到達）= 進入並到達
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เข้าถึง ข้อมูล</span>（獲取資訊）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เข้าถึง ได้ง่าย</span>（容易取得）
+  - 例：อินเทอร์เน็ต  ทำให้  เรา  เข้าถึง  ข้อมูล  ได้ง่าย  ขึ้น（網路讓我們更容易獲取資訊）
+
+- 84. **วินัย** [wí-nai] 紀律/自律 (discipline)
+  - 記憶法：諧音「為乃」→ 為了目標需要紀律
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มี วินัย</span>（有紀律）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">วินัย ในการเรียน</span>（學習紀律）
+  - 例：ความสำเร็จ  มาจาก  ความขยัน  และ  วินัย（成功來自於勤奮與自律）
+
+- 85. **ประสบ** [prà-sòp] 經歷/遭遇 (experience)
+  - 字構：ประ（達到/接觸）+ สบ（碰到/遭遇）= 接觸遭遇
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ประสบ ความสำเร็จ</span>（獲得成功）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ประสบ ปัญหา</span>（遭遇問題）
+  - 例：เขา  ประสบ  ความสำเร็จ  จาก  ความพยายาม（他因努力而獲得成功）
+
+---
+
+<a id="飲食消費"></a>
+## 主題十五：飲食消費
+
+- 86. **บริโภค** [boo-rí-phôok] 消費/食用 (consumption)
+  - 字構：บริ（服務/圍繞）+ โภค（消費/享用）= 圍繞享用消費
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">บริโภค อาหาร</span>（食用食物）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การบริโภค มากเกินไป</span>（過度消費）
+  - 例：เรา  ควร  บริโภค  อาหาร  ที่มีประโยชน์  ต่อ  ร่างกาย（我們應該食用對身體有益的食物）
+
+- 87. **แปรรูป** [praae-rûup] 加工/轉型 (processed)
+  - 字構：แปร（轉變/改變）+ รูป（形狀/樣）= 改變形狀
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">อาหาร แปรรูป</span>（加工食品）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แปรรูป สินค้าเกษตร</span>（農產品加工）
+  - 例：อาหารแปรรูป  มัก  มี  เกลือ  และ  น้ำตาล  สูง（加工食品通常含鹽和糖量高）
+
+- 88. **ปริมาณ** [prì-maan] 數量/份量 (quantity)
+  - 字構：ปริ（圍繞/充滿）+ มาณ（測量）= 測量充滿的量
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ปริมาณ อาหาร</span>（食物份量）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ควบคุม ปริมาณ</span>（控制份量）
+  - 例：ควร  ควบคุม  ปริมาณ  อาหาร  ที่บริโภค  ต่อ  วัน（應控制每日食物攝取量）
+
+- 89. **ปรุง** [prung] 烹調/料理 (cook)
+  - 記憶法：諧音「啵龍」→ 啵龍啵龍烹調中
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ปรุง อาหาร</span>（烹飪食物）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ปรุง รส</span>（調味）
+  - 例：เธอ  ปรุง  อาหาร  อร่อย  มาก（她烹調的食物非常美味）
+
+---
+
+<a id="組織創意"></a>
+## 主題十六：組織創意
+
+- 90. **ส่งเสริม** [sòng-sǒem] 促進/推廣 (promote)
+  - 字構：ส่ง（推動）+ เสริม（補強/添加）= 推動補強
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งเสริม การท่องเที่ยว</span>（推廣旅遊）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งเสริม ความคิดเห็น</span>（促進意見表達）
+  - 例：บริษัทนี้  ส่งเสริม  ความคิดเห็น  ของ  พนักงาน（這家公司促進員工的意見表達）
+
+- 91. **แบบเปิดกว้าง** [bàep-pòet-kwâang] 開放包容的 (open-minded)
+  - 字構：แบบ（方式）+ เปิด（打開）+ กว้าง（寬廣）= 寬廣開放的方式
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">คิด แบบเปิดกว้าง</span>（開放思考）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ทัศนคติ แบบเปิดกว้าง</span>（開放的態度）
+  - 例：ผู้นำที่ดี  ควร  มี  ทัศนคติ  แบบเปิดกว้าง（好的領導者應有開放包容的態度）
+
+- 92. **ความคิดเห็น** [khwaam-khít-hěn] 意見/看法 (opinion)
+  - 字構：ความ（抽象名詞）+ คิด（思考）+ เห็น（看見）= 思考後看見的意見
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แสดง ความคิดเห็น</span>（表達意見）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความคิดเห็น ที่แตกต่าง</span>（不同意見）
+  - 例：ทุกคน  มี  สิทธิ์  แสดง  ความคิดเห็น（每個人都有表達意見的權利）
+
+- 93. **ความคิดสร้างสรรค์** [khwaam-khít-sâang-sǎn] 創意/創造力 (creativity)
+  - 字構：ความคิด（想法）+ สร้างสรรค์（創造性的）= 創造性的想法
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">กระตุ้น ความคิดสร้างสรรค์</span>（激發創意）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งเสริม ความคิดสร้างสรรค์</span>（促進創意）
+  - 例：งานศิลปะ  ช่วย  กระตุ้น  ความคิดสร้างสรรค์  ของ  เด็ก（藝術活動有助激發孩子的創意）
+
+---
+
+<a id="氣候與農業"></a>
+## 主題十七：氣候與農業
+
+- 94. **การเปลี่ยนแปลง** [kaan-plìan-plaeng] 改變/變化 (change)
+  - 字構：การ（行為）+ เปลี่ยน（改變）+ แปลง（轉變）= 改變轉變的行為
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การเปลี่ยนแปลง ภูมิอากาศ</span>（氣候變化）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">รับมือ การเปลี่ยนแปลง</span>（應對變化）
+  - 例：การเปลี่ยนแปลง  ภูมิอากาศ  ส่งผลกระทบ  ต่อ  ทุกคน（氣候變化影響所有人）
+
+- 95. **สภาพภูมิอากาศ** [sà-phâap-phuu-mí-aa-kàat] 氣候 (climate)
+  - 字構：สภาพ（狀態）+ ภูมิ（地域/地理）+ อากาศ（天氣）= 地域天氣狀態
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สภาพภูมิอากาศ เปลี่ยนแปลง</span>（氣候變化）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">สภาพภูมิอากาศ รุนแรง</span>（極端氣候）
+  - 例：สภาพภูมิอากาศ  ของ  ประเทศไทย  ร้อน  และ  ชื้น（泰國的氣候炎熱潮濕）
+
+- 96. **ส่งผลกระทบ** [sòng-phǒn-grà-thop] 造成衝擊/影響 (impact)
+  - 字構：ส่ง（傳送）+ ผล（結果）+ กระทบ（衝擊）= 傳送衝擊結果
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งผลกระทบ ต่อสิ่งแวดล้อม</span>（對環境造成衝擊）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ส่งผลกระทบ รุนแรง</span>（造成嚴重衝擊）
+  - 例：น้ำท่วม  ส่งผลกระทบ  ต่อ  เกษตรกร  หลายล้าน  คน（洪水對數百萬農民造成衝擊）
+
+- 97. **เกษตรกร** [kà-sèt-trà-gorn] 農民/農夫 (farmer)
+  - 字構：เกษตร（農業/耕作）+ กร（做事者）= 農業工作者
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ช่วยเหลือ เกษตรกร</span>（幫助農民）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เกษตรกร ไทย</span>（泰國農民）
+  - 例：รัฐบาล  ช่วยเหลือ  เกษตรกร  ที่ได้รับ  ผลกระทบ  จาก  ภัยแล้ง（政府幫助受旱災影響的農民）
+
+- 98. **ผลผลิต** [phǒn-phà-lìt] 產量/農產品 (yield/produce)
+  - 字構：ผล（結果/果實）+ ผลิต（生產）= 生產的成果
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ผลผลิต การเกษตร</span>（農業產量）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ผลผลิต เพิ่มขึ้น</span>（產量增加）
+  - 例：ภัยแล้ง  ทำให้  ผลผลิต  ทางการเกษตร  ลดลง（旱災使農業產量減少）
+
+- 99. **การปรับตัว** [kaan-pràp-tua] 適應/調整 (adaptation)
+  - 字構：การ（行為）+ ปรับ（調整）+ ตัว（自身）= 自身調整的行為
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">การปรับตัว ต่อสภาพภูมิอากาศ</span>（適應氣候）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">มีความสามารถ ในการปรับตัว</span>（具有適應能力）
+  - 例：เกษตรกร  ต้อง  มี  การปรับตัว  ต่อ  สภาพภูมิอากาศ  ที่เปลี่ยนแปลง（農民必須適應氣候變化）
+
+---
+
+<a id="溝通與衝突"></a>
+## 主題十八：溝通與衝突
+
+- 100. **ประหยัด** [prà-yàt] 節省/節約 (save)
+  - 記憶法：諧音「把亞」→ 把資源存起來省著用
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ประหยัด พลังงาน</span>（節省能源）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ประหยัด เงิน</span>（省錢）
+  - 例：ควร  ประหยัด  พลังงาน  เพื่อ  ลด  ค่าใช้จ่าย（應節省能源以減少開支）
+
+- 101. **คุณภาพ** [khun-ná-phâap] 品質 (quality)
+  - 字構：คุณ（功德/價值）+ ภาพ（狀態/面貌）= 有價值的狀態
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">คุณภาพ สูง</span>（高品質）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ควบคุม คุณภาพ</span>（品質管控）
+  - 例：สินค้า  ที่มีคุณภาพดี  ขาย  ได้  ในราคา  สูงกว่า（品質好的商品能以更高價格銷售）
+
+- 102. **ความขัดแย้ง** [khwaam-khàt-yáeng] 衝突/矛盾 (conflict)
+  - 字構：ความ（抽象名詞）+ ขัดแย้ง（抗拒/矛盾）= 矛盾衝突這件事
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ความขัดแย้ง ระหว่าง</span>（兩者間的衝突）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">แก้ไข ความขัดแย้ง</span>（解決衝突）
+  - 例：การสื่อสาร  ที่ดี  ช่วย  ลด  ความขัดแย้ง（良好的溝通有助減少衝突）
+
+- 103. **ความล้มเหลว** [khwaam-lóm-lǐao] 失敗 (failure)
+  - 字構：ความ（抽象名詞）+ ล้มเหลว（失敗倒下）= 失敗這件事
+  - 搭配：<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">เรียนรู้ จากความล้มเหลว</span>（從失敗中學習）　<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">ไม่กลัว ความล้มเหลว</span>（不怕失敗）
+  - 例：ความล้มเหลว  เป็น  บทเรียน  ที่มีค่า  ที่สุด（失敗是最珍貴的功課）
