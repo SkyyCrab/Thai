@@ -6,11 +6,66 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Thai-Chinese language learning notes project. Thai academic articles are processed into structured study notes and interactive web pages for a Chinese-speaking learner (Traditional Chinese output).
 
+## Folder Structure
+
+```
+NOTE/
+├── 原文/       source .txt and .pdf files (renamed to plain English)
+├── 文章/       study notes (_notes.md) and interactive HTML (_interactive.html)
+├── 單字/       vocab review sheets (_單字複習.md)
+├── lyrics/     song lyrics with romanization and Chinese translation
+└── CLAUDE.md
+```
+
+### 原文/ — Source Files
+
+Raw material only. Naming convention: `L{n}_{EnglishTitle}.txt` / `.pdf`
+
+Examples: `L3_Japan_Lithium_EV_Battery_Recycling.txt`, `L2_Gender_Blooms_Decode.pdf`
+
+### 文章/ — Study Notes & Interactive HTML
+
+Article workflow: `原文/L{n}_*.txt` → `文章/L{n}_*_notes.md` → `文章/L{n}_*_interactive.html`
+
+### 單字/ — Vocab Review Sheets
+
+Naming: `{topic}_單字複習.md` or `vab_{ThaiTopic}_單字複習.md`
+
+Each file structure:
+- `# {title}` heading
+- `## 目錄` TOC with `<a id="...">` anchor links to thematic sections
+- Entries grouped under `## 主題N：{name}` headings
+
+Entry format (one entry per bullet):
+```
+- N. **泰文** [romanization] 中文 (English)
+  - 字構：mnemonic or compound breakdown
+  - 搭配：<span yellow>collocate</span> ...
+  - 例：word-segmented Thai with <span blue>focus word</span>（Chinese）
+```
+
+HTML span styles:
+- 搭配 (yellow): `<span style="background:#e8c547;color:#111;padding:1px 5px;border-radius:3px">...</span>`
+- 例 focus word (blue): `<span style="background:#4a90e2;color:#fff;padding:1px 5px;border-radius:3px">...</span>`
+
+### lyrics/ — Song Lyrics
+
+Naming: `{ThaiTitle}.md`
+
+File structure — each line block:
+```
+**word-segmented Thai**  
+[romanization]  
+中文翻譯
+
+---
+```
+
 ## Workflow
 
 Source article (`.txt`, converted from PDF) → study notes (`_notes.md`) → interactive HTML (`_interactive.html`)
 
-File naming: `L{n} {title}.txt` → `L{n}_notes.md` → `L{n}_interactive.html`
+File naming: `L{n}_{EnglishTitle}.txt` → `L{n}_*_notes.md` → `L{n}_*_interactive.html`
 
 ## Notes Format (`_notes.md`)
 
